@@ -23,8 +23,12 @@ from .v2 import (
     RepositoryMonitor,
     SnapshotBuilder,
 )
+import sys
+from .secure_execution import DockerSandbox, ExecutionPolicy
+from .v2.adversarial import AdversarialTestingEngine
 from .v2.code_intelligence import CodeIntelligenceEngine
 from .v2.requirement_intelligence import RequirementIntelligenceEngine
+from .v2.test_engineering import AutonomousTestEngineeringEngine
 
 
 class ProjectCreate(BaseModel):
@@ -628,6 +632,210 @@ def create_app(store: BackendStore | None = None, evidence_store: EvidenceStore 
             "evidence_count": len(res.evidence),
         }
 
+    @app.get("/api/v2/environment")
+    def get_environment() -> dict:
+        sandbox = DockerSandbox(ExecutionPolicy())
+        docker_available = sandbox.available()
+        docker_reason = None if docker_available else sandbox.explain_unavailable()
+        evidence_records = app.state.evidence_store.list_lifecycle_records()
+        findings = app.state.evidence_store.list_findings()
+        return {
+            "status": "ok",
+            "service": "specguard-backend",
+            "version": "2.0.0",
+            "python_version": sys.version.split()[0],
+            "platform": sys.platform,
+            "docker_available": docker_available,
+            "docker_status": "active" if docker_available else "offline",
+            "docker_message": "Docker rootless sandbox active" if docker_available else f"Sandbox offline: {docker_reason} (Fail-closed execution boundary)",
+            "limits": {
+                "max_file_size": app.state.store.limits.max_file_size,
+                "max_total_size": app.state.store.limits.max_total_size,
+                "max_files": app.state.store.limits.max_files,
+            },
+            "evidence_count": len(evidence_records),
+            "findings_count": len(findings),
+            "engines": [
+                {"name": "Requirement Intelligence", "status": "active", "version": "v2.0"},
+                {"name": "Python Code Intelligence", "status": "active", "version": "v2.0"},
+                {"name": "Behavioral Verification", "status": "active", "version": "v2.0"},
+                {"name": "Advanced Adversarial Testing", "status": "active", "version": "v2.0"},
+                {"name": "Autonomous Test Engineering", "status": "active", "version": "v2.0"},
+                {"name": "Continuous Assurance", "status": "active", "version": "v2.0"},
+            ],
+        }
+
+    @app.get("/api/v2/projects/{project_id}/overview")
+    def get_project_overview(project_id: str) -> dict:
+        try:
+            record = app.state.store.project(project_id)
+        except BackendError as exc:
+            raise HTTPException(status_code=404, detail=str(exc))
+
+        req_path = record.root / "requirements.md"
+        source_root = record.root / "source" if (record.root / "source").exists() else record.root
+
+        req_count = 0
+        amb_count = 0
+        contracts_count = 0
+        findings_count = 0
+        if req_path.exists():
+            req_engine = RequirementIntelligenceEngine()
+            req_res = req_engine.analyze(req_path, project_root=source_root, run_id=f"overview-{project_id[:8]}")
+            req_count = len(req_res.requirements)
+            amb_count = sum(1 for r in req_res.requirements if getattr(r, "ambiguous", False))
+            contracts_count = len(req_res.behavior_contracts)
+            findings_count = len(req_res.findings)
+
+        code_symbols_count = 0
+        has_py = any(source_root.glob("**/*.py"))
+        if has_py and req_path.exists():
+            try:
+                code_engine = CodeIntelligenceEngine(store=app.state.evidence_store)
+                code_res = code_engine.analyze(source_root, req_path, run_id=f"overview-code-{project_id[:8]}")
+                code_symbols_count = len(code_res.symbols)
+            except Exception:
+                code_symbols_count = 0
+
+        sandbox = DockerSandbox(ExecutionPolicy())
+        docker_available = sandbox.available()
+        docker_reason = None if docker_available else sandbox.explain_unavailable()
+        project_evidence = [e.to_dict() for e in app.state.evidence_store.list_lifecycle_records()[:20]]
+
+        return {
+            "status": "ok",
+            "project_id": project_id,
+            "project_name": record.metadata.get("name", project_id),
+            "has_requirements": req_path.exists(),
+            "has_source": has_py,
+            "docker_available": docker_available,
+            "docker_status": "active" if docker_available else "offline",
+            "docker_message": "Docker rootless sandbox active" if docker_available else f"Sandbox offline: {docker_reason}",
+            "metrics": {
+                "total_requirements": req_count,
+                "ambiguous_requirements": amb_count,
+                "behavior_contracts": contracts_count,
+                "ast_symbols": code_symbols_count,
+                "findings": findings_count,
+                "evidence_records": len(project_evidence),
+            },
+            "recent_evidence": project_evidence,
+        }
+
+    @app.post("/api/v2/projects/{project_id}/adversarial")
+    def run_adversarial_testing(project_id: str) -> dict:
+        try:
+            record = app.state.store.project(project_id)
+        except BackendError as exc:
+            raise HTTPException(status_code=404, detail=str(exc))
+
+        req_path = record.root / "requirements.md"
+        source_root = record.root / "source" if (record.root / "source").exists() else record.root
+        if not req_path.exists():
+            raise HTTPException(status_code=400, detail="Project does not have requirements.md uploaded yet")
+
+        req_engine = RequirementIntelligenceEngine()
+        req_res = req_engine.analyze(req_path, project_root=source_root, run_id=f"adv-{project_id[:8]}")
+        code_engine = CodeIntelligenceEngine(store=app.state.evidence_store)
+        code_res = code_engine.analyze(source_root, req_path, run_id=f"adv-code-{project_id[:8]}")
+
+        adv_engine = AdversarialTestingEngine(store=app.state.evidence_store)
+        res = adv_engine.run(
+            source_root,
+            req_res.requirements,
+            contracts=req_res.behavior_contracts,
+            traceability=code_res.traceability,
+            symbols=code_res.symbols,
+            run_id=f"adv-run-{project_id[:8]}"
+        )
+        sandbox = DockerSandbox(ExecutionPolicy())
+        return {
+            "status": "ok",
+            "run_id": res.run.run_id,
+            "run_status": res.run.status,
+            "targets_count": len(res.targeting.targets),
+            "targets": [
+                {
+                    "target_id": f"target-{t.requirement_id}",
+                    "target_line": t.target_line,
+                    "target_symbol_id": t.target_symbol_id,
+                    "requirement_id": t.requirement_id,
+                    "status": t.status,
+                    "reason": t.reason,
+                    "source_path": str(t.source_path) if t.source_path else None,
+                }
+                for t in res.targeting.targets
+            ],
+            "mutants_count": len(res.mutants),
+            "mutants": [m.to_dict() for m in res.mutants[:50]],
+            "findings_count": len(res.findings),
+            "findings": [f.to_dict() for f in res.findings[:50]],
+            "evidence_count": len(res.evidence),
+            "docker_available": sandbox.available(),
+            "docker_notice": "Dynamic test execution against mutants is inconclusive when Docker is unconfigured (fail-closed execution enforced)." if not sandbox.available() else "Dynamic test execution performed in Docker sandbox."
+        }
+
+    @app.post("/api/v2/projects/{project_id}/test-engineering")
+    def run_test_engineering(project_id: str) -> dict:
+        try:
+            record = app.state.store.project(project_id)
+        except BackendError as exc:
+            raise HTTPException(status_code=404, detail=str(exc))
+
+        req_path = record.root / "requirements.md"
+        source_root = record.root / "source" if (record.root / "source").exists() else record.root
+        if not req_path.exists():
+            raise HTTPException(status_code=400, detail="Project does not have requirements.md uploaded yet")
+
+        req_engine = RequirementIntelligenceEngine()
+        req_res = req_engine.analyze(req_path, project_root=source_root, run_id=f"te-{project_id[:8]}")
+        code_engine = CodeIntelligenceEngine(store=app.state.evidence_store)
+        code_res = code_engine.analyze(source_root, req_path, run_id=f"te-code-{project_id[:8]}")
+
+        adv_engine = AdversarialTestingEngine(store=app.state.evidence_store)
+        adv_res = adv_engine.run(
+            source_root,
+            req_res.requirements,
+            contracts=req_res.behavior_contracts,
+            traceability=code_res.traceability,
+            symbols=code_res.symbols,
+            run_id=f"te-mut-{project_id[:8]}"
+        )
+
+        eng_engine = AutonomousTestEngineeringEngine(store=app.state.evidence_store)
+        res = eng_engine.run(
+            source_root,
+            req_res.requirements,
+            contracts=req_res.behavior_contracts,
+            mutation_run=adv_res.run,
+            mutants=adv_res.mutants,
+            run_id=f"te-eng-{project_id[:8]}"
+        )
+        return {
+            "status": "ok",
+            "run_id": res.run.run_id,
+            "run_status": res.run.status,
+            "gaps_count": len(res.gaps),
+            "gaps": [g.to_dict() for g in res.gaps],
+            "candidates_count": len(res.candidates),
+            "candidates": [c.to_dict() for c in res.candidates],
+            "validations_count": len(res.validations),
+            "validations": [v.to_dict() for v in res.validations],
+            "evidence_count": len(res.evidence),
+        }
+
+    @app.get("/api/v2/projects/{project_id}/evidence")
+    def get_project_evidence(project_id: str) -> dict:
+        records = app.state.evidence_store.list_lifecycle_records()
+        findings = app.state.evidence_store.list_findings()
+        return {
+            "status": "ok",
+            "project_id": project_id,
+            "evidence": [r.to_dict() for r in records],
+            "findings": [f.to_dict() for f in findings],
+            "counts": {"evidence": len(records), "findings": len(findings)}
+        }
+
     # Initialize default demo project if empty
     import shutil
     with app.state.store.lock:
@@ -648,12 +856,36 @@ def create_app(store: BackendStore | None = None, evidence_store: EvidenceStore 
         from fastapi.staticfiles import StaticFiles
         app.mount("/static", StaticFiles(directory=str(frontend_dir)), name="static")
 
+        def _serve_file(filename: str):
+            p = frontend_dir / filename
+            if p.exists():
+                return HTMLResponse(p.read_text(encoding="utf-8"))
+            return HTMLResponse(f"<h1>SpecGuard View {filename} not found</h1>", status_code=404)
+
         @app.get("/")
-        def serve_index():
-            index_path = frontend_dir / "index.html"
-            if index_path.exists():
-                return HTMLResponse(index_path.read_text(encoding="utf-8"))
-            return HTMLResponse("<h1>SpecGuard Frontend not found</h1>", status_code=404)
+        @app.get("/requirements")
+        def serve_requirements():
+            return _serve_file("index.html")
+
+        @app.get("/overview")
+        def serve_overview():
+            return _serve_file("assurance_overview.html")
+
+        @app.get("/code-intelligence")
+        def serve_code_intelligence():
+            return _serve_file("code_intelligence.html")
+
+        @app.get("/adversarial-testing")
+        def serve_adversarial_testing():
+            return _serve_file("adversarial_testing.html")
+
+        @app.get("/autonomous-test-engineering")
+        def serve_autonomous_test_engineering():
+            return _serve_file("autonomous_test_engineering.html")
+
+        @app.get("/continuous-assurance")
+        def serve_continuous_assurance():
+            return _serve_file("continuous_assurance.html")
 
     return app
 
