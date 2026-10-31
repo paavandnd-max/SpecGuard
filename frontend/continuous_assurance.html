@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-secondary-container":"#b3b1ff","on-secondary-fixed":"#0f0069","on-surface":"#e0e2ec","on-primary":"#00354a","tertiary-container":"#30c88f","on-background":"#e0e2ec","primary-container":"#38bdf8","on-tertiary-fixed":"#002113","secondary-fixed":"#e2dfff","inverse-primary":"#00668a","on-primary-container":"#004965","primary-fixed-dim":"#7bd0ff","secondary-fixed-dim":"#c3c0ff","surface-tint":"#7bd0ff","surface-bright":"#363941","outline-variant":"#3e484f","outline":"#87929a","primary":"#8ed5ff","tertiary-fixed":"#6ffbbe","tertiary-fixed-dim":"#4edea3","on-tertiary-fixed-variant":"#005236","on-secondary-fixed-variant":"#3323cc","surface-container-highest":"#32353c","on-tertiary-container":"#004e34","primary-fixed":"#c4e7ff","error":"#ffb4ab","surface-container-low":"#191c23","on-tertiary":"#003824","on-surface-variant":"#bdc8d1","error-container":"#93000a","on-primary-fixed":"#001e2c","surface-container-lowest":"#0b0e15","on-error-container":"#ffdad6","surface":"#10131a","secondary-container":"#3626ce","tertiary":"#56e5a9","on-primary-fixed-variant":"#004c69","on-secondary":"#1d00a5","surface-dim":"#10131a","on-error":"#690005","surface-container-high":"#272a31","surface-variant":"#32353c","surface-container":"#1d2027","inverse-on-surface":"#2d3038","background":"#10131a","inverse-surface":"#e0e2ec","secondary":"#c3c0ff"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xs":"0.25rem","gutter":"0.75rem","space-md":"0.5rem","space-sm":"0.375rem","space-lg":"0.75rem","space-xl":"1rem","margin":"1rem"},"fontFamily":{"code-lg":["JetBrains Mono"],"code-md":["JetBrains Mono"],"body-md":["Geist"],"headline-md":["Geist"],"label-md":["JetBrains Mono"],"headline-xl":["Geist"],"label-xs":["JetBrains Mono"],"code-sm":["JetBrains Mono"],"headline-lg":["Geist"],"body-lg":["Geist"],"label-sm":["JetBrains Mono"],"body-sm":["Geist"]},"fontSize":{"code-lg":["13px",{"lineHeight":"20px","fontWeight":"500"}],"code-md":["12px",{"lineHeight":"18px","fontWeight":"400"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"headline-md":["16px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-xl":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-xs":["9px",{"lineHeight":"12px","letterSpacing":"0.06em","fontWeight":"600"}],"code-sm":["11px",{"lineHeight":"16px","fontWeight":"400"}],"headline-lg":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-lg":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest flex flex-col z-50 select-none"><div class="p-space-lg flex flex-col gap-space-md"><div class="flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="SpecGuard Brand Mark" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VOfC8on-kCL6bFNwlPfba32NLK9XcFR9A9Qcqx3JMDCjU-s3p9svpYc-wigx4Y2UQkiOdoTNElToFy8wgeP2-o-IofeLCzw7xf78PXk7HvLyIBw5eDxQe4nuPX88shsRzAds-Q9bFFJA-lI9oZC9QXfy5TcAqVNKEmhuAXBmWjc5IzUeDt4Cj666uowQxNw9RYnaEoW_pPL-RCuP1gNa56Hc03j9wtKdKxu6uRePs"/><span class="font-headline-md text-headline-md text-on-surface tracking-tight">SpecGuard</span></div><span class="font-label-xs text-label-xs bg-surface-container-high text-on-surface-variant px-space-xs py-0.5 rounded">DEMO</span></div><div class="flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm px-space-xs"><span class="text-primary">v0.9.4-rc2</span><span class="text-outline font-label-xs text-label-xs uppercase">SYNTHETIC</span></div><div class="bg-surface-container-low p-space-sm rounded flex items-center justify-between mt-space-xs"><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-xs font-code-sm text-code-sm text-on-surface font-semibold truncate"><span class="material-symbols-outlined text-primary text-base">dataset</span><span class="truncate">payments-core / main</span></div><span class="font-code-sm text-code-sm text-outline font-mono pl-space-lg truncate">git:e93f7a1</span></div><span class="material-symbols-outlined text-outline text-base">unfold_more</span></div></div><div class="flex-1 overflow-y-auto px-space-sm py-space-xs"><nav class="space-y-0.5" data-active-classes="bg-surface-container-high text-primary font-code-sm font-semibold"><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="overview" href="#"><span>Overview</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="projects" href="#"><span>Projects</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="requirements" href="#"><span>Requirements</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="code-intelligence" href="#"><span>Code Intelligence</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="behavioral-verification" href="#"><span>Behavioral Verification</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="adversarial-testing" href="#"><span>Adversarial Testing</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="autonomous-test-engineering" href="#"><span>Autonomous Test Engineering</span></a><a aria-current="page" class="flex items-center gap-space-md px-space-md py-space-sm rounded transition-colors bg-surface-container-high text-primary font-code-sm font-semibold" data-path="continuous-assurance" href="#"><span>Continuous Assurance</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="evidence-explorer" href="#"><span>Evidence Explorer</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="reports-and-analytics" href="#"><span>Reports &amp; Analytics</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="settings" href="#"><span>Settings</span></a></nav></div><div class="p-space-md bg-surface-container-lowest flex flex-col gap-space-sm"><div class="bg-surface-container-low p-space-sm rounded flex items-center justify-between"><div class="flex items-center gap-space-sm"><span class="h-2 w-2 rounded-full bg-tertiary-container animate-pulse"></span><span class="font-code-sm text-code-sm text-on-surface-variant truncate">Docker: 24.0.7-rootless</span></div><span class="font-label-xs text-label-xs text-tertiary bg-tertiary-container/20 px-1 py-0.5 rounded font-mono">ISO</span></div><div class="flex items-center justify-between px-space-xs"><a class="font-code-sm text-code-sm text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1" href="#"><span class="material-symbols-outlined text-sm">menu_book</span>Docs</a><span class="font-label-xs text-label-xs bg-surface-container-high text-outline px-1.5 py-0.5 rounded font-mono">⌘K</span></div><div class="bg-surface-container-low p-space-sm rounded flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASMkw76P3augJMOs_TLKbaFC8tPS0yko2ZxU1P7ptw84uNkrL-FXfyvEqDDdBd6I3uena7SqgbHI-iQmJQbLsOeYiR4oyMlCDPJFooOQf0Ods92DiNY261QNDXRHFIHutf3_ZJnnnk3yWOSUHylP82sLDjsxViXz6KNgb_Sjeplfwmedwamsgsms2hQDiEgVNjQFBNmFPH2RVgebIK31UNm9YEpbQon2-LN0-OVwY"/><div class="flex flex-col min-w-0 flex-1"><div class="flex items-center justify-between"><span class="font-body-sm text-body-sm font-semibold text-on-surface truncate">Alex Mercer</span><span class="font-label-xs text-label-xs text-primary bg-primary-container/20 px-1 rounded uppercase">Ent</span></div><span class="font-label-xs text-label-xs text-outline truncate">Staff Assurance Eng</span></div></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-md z-40 px-space-xl flex items-center justify-between select-none shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="flex items-center gap-space-lg flex-1"><div class="flex items-center gap-space-xs font-code-sm text-code-sm text-outline"><span class="text-on-surface-variant">SpecGuard</span><span class="text-outline">/</span><span class="text-on-surface-variant">payments-core</span><span class="text-outline">/</span><span class="text-primary font-mono">main [e93f7a1]</span></div><div class="hidden xl:flex items-center gap-space-sm"><span class="inline-flex items-center gap-1 font-label-xs text-label-xs px-2 py-0.5 rounded bg-tertiary-container/10 text-tertiary font-mono"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>Docker: Active (rootless)</span><span class="inline-flex items-center gap-1 font-label-xs text-label-xs px-2 py-0.5 rounded bg-surface-container-high text-outline font-mono"><span class="material-symbols-outlined text-xs">fork_right</span>main @ 384c2df</span></div><div class="relative flex-1 max-w-md mx-space-md"><span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-base">search</span><input class="w-full bg-surface-container-low text-on-surface placeholder:text-outline font-code-sm text-code-sm pl-8 pr-12 py-1 rounded outline-none focus:ring-1 focus:ring-primary-container" placeholder="Search requirements, mutants, symbols, runs (⌘K)..." type="text"/><span class="absolute right-2 top-1/2 -translate-y-1/2 font-label-xs text-label-xs text-outline bg-surface-container-high px-1 py-0.5 rounded font-mono">⌘K</span></div></div><div class="flex items-center gap-space-md"><button class="relative p-1.5 text-on-surface-variant hover:text-on-surface rounded hover:bg-surface-container-low transition-colors" title="Notifications"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1 right-1 flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-error"></span></span></button><button class="bg-primary-container text-on-primary-container hover:bg-primary-fixed-dim px-3 py-1 rounded font-body-sm text-body-sm font-semibold flex items-center gap-1 shadow-sm transition-colors"><span class="material-symbols-outlined text-base">play_arrow</span><span>Run Assurance</span><span class="material-symbols-outlined text-sm">arrow_drop_down</span></button><div class="flex items-center gap-1 text-outline font-code-sm text-code-sm px-2 py-1 rounded bg-surface-container-low" title="Theme: Deterministic Dark (Locked)"><span class="material-symbols-outlined text-sm text-primary">dark_mode</span><span class="font-label-xs text-label-xs uppercase">Dark</span></div><div class="flex items-center gap-2 pl-space-xs"><a class="p-1 text-on-surface-variant hover:text-primary transition-colors" href="#" title="API Health"><span class="material-symbols-outlined text-lg">hub</span></a><a class="p-1 text-on-surface-variant hover:text-primary transition-colors" href="#" title="Docs &amp; Reference"><span class="material-symbols-outlined text-lg">help_outline</span></a><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASMkw76P3augJMOs_TLKbaFC8tPS0yko2ZxU1P7ptw84uNkrL-FXfyvEqDDdBd6I3uena7SqgbHI-iQmJQbLsOeYiR4oyMlCDPJFooOQf0Ods92DiNY261QNDXRHFIHutf3_ZJnnnk3yWOSUHylP82sLDjsxViXz6KNgb_Sjeplfwmedwamsgsms2hQDiEgVNjQFBNmFPH2RVgebIK31UNm9YEpbQon2-LN0-OVwY"/></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full text-on-surface">
+<!-- TOP SUB-HEADER & EXECUTION BAR -->
+<section class="w-full bg-surface-container-lowest px-space-xl py-space-lg flex flex-col gap-space-md shadow-sm">
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
+<!-- Title & Monospace Metadata Badges -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex flex-wrap items-center gap-space-sm">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Continuous Assurance</h1>
+<span class="inline-flex items-center gap-1 font-label-xs text-label-xs px-2 py-0.5 rounded bg-surface-container text-primary font-mono select-all">
+<span class="text-outline">SHA:</span>e93f7a1
+          </span>
+<span class="inline-flex items-center gap-1 font-label-xs text-label-xs px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-mono select-all">
+<span class="text-outline">BASE:</span>384c2df
+          </span>
+<span class="inline-flex items-center gap-1 font-label-xs text-label-xs px-2 py-0.5 rounded bg-surface-container text-tertiary font-mono">
+            DIFF: +142 -28 LOC
+          </span>
+<span class="inline-flex items-center gap-1 font-label-xs text-label-xs px-2 py-0.5 rounded bg-tertiary-container/15 text-tertiary font-mono">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+            ROOTLESS DOCKER ACTIVE
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-4xl">
+          Evaluate commit impact across formal requirements, AST call graphs, synthetic test suites, and mutation evidence. Plan and execute targeted, conservative re-verification.
+        </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-wrap items-center gap-space-sm shrink-0">
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface px-3 py-1.5 rounded font-label-md text-label-md flex items-center gap-1.5 transition-colors shadow-sm" onclick="console.log('compare snapshots')">
+<span class="material-symbols-outlined text-sm text-outline">compare_arrows</span>
+<span>Compare Snapshots</span>
+</button>
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface px-3 py-1.5 rounded font-label-md text-label-md flex items-center gap-1.5 transition-colors shadow-sm" onclick="console.log('generate plan')">
+<span class="material-symbols-outlined text-sm text-primary">account_tree</span>
+<span>Generate Evaluation Plan</span>
+</button>
+<button class="bg-primary-container text-on-primary-container hover:bg-primary-fixed-dim px-3.5 py-1.5 rounded font-label-md text-label-md font-semibold flex items-center gap-1.5 shadow-sm transition-colors active:scale-95" onclick="console.log('execute plan')">
+<span class="material-symbols-outlined text-sm">rocket_launch</span>
+<span>Execute Approved Plan (3 Tasks)</span>
+</button>
+</div>
+</div>
+<!-- Sub-navigation Tabs -->
+<div class="flex items-center gap-1 overflow-x-auto bg-surface-container-low p-1 rounded max-w-full">
+<button class="bg-surface-container-high text-primary px-3 py-1 rounded font-label-xs text-label-xs font-semibold flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-xs">hub</span>
+<span>Impact Analysis</span>
+</button>
+<button class="text-on-surface-variant hover:text-on-surface px-3 py-1 rounded font-label-xs text-label-xs transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs">history</span>
+<span>Repository Snapshots</span>
+</button>
+<button class="text-on-surface-variant hover:text-on-surface px-3 py-1 rounded font-label-xs text-label-xs transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs">difference</span>
+<span>Change Detection</span>
+</button>
+<button class="text-on-surface-variant hover:text-on-surface px-3 py-1 rounded font-label-xs text-label-xs transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs">checklist</span>
+<span>Evaluation Planner</span>
+</button>
+<button class="text-on-surface-variant hover:text-on-surface px-3 py-1 rounded font-label-xs text-label-xs transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs">fast_forward</span>
+<span>Incremental Runs</span>
+</button>
+<button class="text-on-surface-variant hover:text-on-surface px-3 py-1 rounded font-label-xs text-label-xs transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs">fingerprint</span>
+<span>Evidence Lifecycle</span>
+</button>
+<button class="text-on-surface-variant hover:text-error px-3 py-1 rounded font-label-xs text-label-xs transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs text-error">crisis_alert</span>
+<span>Regressions (1)</span>
+</button>
+</div>
+</section>
+<!-- CONTENT VIEWPORT -->
+<div class="px-space-xl py-space-lg flex flex-col gap-space-lg w-full">
+<!-- 1. TOP METRICS / SNAPSHOT IMPACT OVERVIEW -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md w-full">
+<!-- Card 1 -->
+<div class="bg-surface-container-low p-space-md rounded flex flex-col justify-between gap-space-sm shadow-sm hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-outline uppercase tracking-wider">Commit Diff Scope</span>
+<span class="font-code-sm text-code-sm text-primary font-mono">Push: main</span>
+</div>
+<div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold font-mono">e93f7a1</span>
+<span class="font-code-sm text-code-sm text-outline">vs 384c2df</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface-variant mt-1">
+            4 Files Mod • 1 Added • 0 Removed
+          </div>
+</div>
+<div class="flex items-center justify-between text-outline font-label-xs text-label-xs bg-surface-container-lowest px-2 py-1 rounded">
+<span class="text-tertiary font-mono">+142 AST Nodes</span>
+<span class="text-error font-mono">-28 AST Nodes</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-low p-space-md rounded flex flex-col justify-between gap-space-sm shadow-sm hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-outline uppercase tracking-wider">Requirement Invariants</span>
+<span class="font-label-xs text-label-xs text-error bg-error-container/30 text-on-error-container px-1.5 py-0.2 rounded font-mono">3 IMPACTED</span>
+</div>
+<div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">3 / 76</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Contracts In Scope</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface-variant mt-1 flex items-center gap-1.5">
+<span class="text-error">REQ-022 (Hi)</span> • <span class="text-secondary">REQ-018</span> • <span class="text-outline">REQ-024 (Blk)</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-outline font-label-xs text-label-xs bg-surface-container-lowest px-2 py-1 rounded">
+<span class="text-on-surface">73 Invariant-Preserved</span>
+<span class="text-tertiary">96.05% Intact</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-low p-space-md rounded flex flex-col justify-between gap-space-sm shadow-sm hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-outline uppercase tracking-wider">Evidence Lifecycle Risk</span>
+<span class="font-label-xs text-label-xs text-primary bg-primary-container/20 text-primary font-mono px-1.5 py-0.2 rounded">DETERMINISTIC</span>
+</div>
+<div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">16 Stale</span>
+<span class="font-code-sm text-code-sm text-error">4 Invalidated</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface-variant mt-1">
+            84 Reusable (Identical AST Fingerprints)
+          </div>
+</div>
+<div class="flex items-center justify-between text-outline font-label-xs text-label-xs bg-surface-container-lowest px-2 py-1 rounded">
+<span>Cache Efficiency</span>
+<span class="text-tertiary font-mono">80.7% Saved CPU</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-low p-space-md rounded flex flex-col justify-between gap-space-sm shadow-sm hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-outline uppercase tracking-wider">Regression Radar</span>
+<span class="font-label-xs text-label-xs bg-error text-on-error px-1.5 py-0.2 rounded font-mono font-bold">1 ACTIVE</span>
+</div>
+<div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-md text-headline-md text-error font-semibold font-mono">REG-108</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Boundary Defect</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface-variant mt-1 truncate font-mono">
+            Mutant M-084 Survived: vault.py:152
+          </div>
+</div>
+<div class="flex items-center justify-between text-outline font-label-xs text-label-xs bg-surface-container-lowest px-2 py-1 rounded">
+<span class="text-tertiary font-mono">0 Compliance Breaches</span>
+<span class="text-on-surface-variant font-mono">ISO-26262 Pass</span>
+</div>
+</div>
+</section>
+<!-- 2. MAIN WORKSPACE: CHANGE PROPAGATION & DEPENDENCY TOPOLOGY -->
+<section class="bg-surface-container-low rounded p-space-md flex flex-col gap-space-md shadow-sm">
+<!-- Toolbar -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm bg-surface-container-lowest p-space-sm rounded">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-base">schema</span>
+<span class="font-headline-md text-headline-md text-on-surface">Change Impact &amp; Propagation Topology</span>
+<span class="font-label-xs text-label-xs text-outline uppercase bg-surface-container px-2 py-0.5 rounded font-mono">Tiered DAG • AST-SMT Bound</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-xs font-label-xs text-label-xs">
+<div class="flex items-center bg-surface-container px-2 py-1 rounded gap-1 text-on-surface-variant">
+<span class="text-outline">Layout:</span>
+<span class="text-primary font-semibold">Tiered DAG</span>
+</div>
+<div class="flex items-center bg-surface-container px-2 py-1 rounded gap-1 text-on-surface-variant">
+<span class="text-outline">Filter:</span>
+<span class="text-on-surface">Impacted Only (12 nodes)</span>
+</div>
+<div class="flex items-center bg-surface-container px-2 py-1 rounded gap-1 text-on-surface-variant">
+<span class="text-outline">Stale Evidence:</span>
+<span class="text-tertiary">Visible</span>
+</div>
+<div class="flex items-center bg-surface-container px-2 py-1 rounded gap-1 text-on-surface-variant">
+<span class="text-outline">Depth:</span>
+<span class="text-on-surface">6 Tiers</span>
+</div>
+<div class="flex items-center bg-surface-container px-1.5 py-1 rounded gap-1 text-outline hover:text-on-surface cursor-pointer">
+<span class="material-symbols-outlined text-sm">zoom_in</span>
+<span>100%</span>
+</div>
+</div>
+</div>
+<!-- Graph Viewport Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-md">
+<!-- The Interactive DAG Canvas (8 cols) -->
+<div class="xl:col-span-8 bg-surface-container-lowest rounded p-space-md overflow-x-auto relative">
+<!-- Visual Grid Backdrop -->
+<div class="absolute inset-0 opacity-10 bg-[radial-gradient(#8ed5ff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+<!-- 6-Tier Pipeline Flow -->
+<div class="relative min-w-[760px] flex justify-between gap-space-sm z-10">
+<!-- TIER 1 -->
+<div class="flex-1 flex flex-col gap-space-md">
+<div class="font-label-xs text-label-xs uppercase text-outline tracking-wider pb-1">
+                Tier 1: Git Diff
+              </div>
+<!-- Node 1.1 -->
+<div class="bg-surface-container p-space-sm rounded cursor-pointer transition-all hover:bg-surface-container-high group" onclick="selectNode('node_file_vault')">
+<div class="flex items-center justify-between text-label-xs font-label-xs text-outline mb-1">
+<span class="text-error font-mono">DIFF_MOD</span>
+<span class="text-outline font-mono">:148-160</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface font-semibold truncate group-hover:text-primary">
+                  payments_vault.py
+                </div>
+<div class="font-label-xs text-label-xs text-outline truncate mt-1">
+                  amount_cents boundary
+                </div>
+</div>
+<!-- Node 1.2 -->
+<div class="bg-surface-container p-space-sm rounded cursor-pointer transition-all hover:bg-surface-container-high group">
+<div class="flex items-center justify-between text-label-xs font-label-xs text-outline mb-1">
+<span class="text-tertiary font-mono">DIFF_ADD</span>
+<span class="text-outline font-mono">+88 loc</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface font-semibold truncate group-hover:text-primary">
+                  test_payment_vault_boundary.py
+                </div>
+<div class="font-label-xs text-label-xs text-outline truncate mt-1">
+                  Synthesized candidate suite
+                </div>
+</div>
+</div>
+<!-- Connector SVG Column 1 -->
+<div class="w-4 shrink-0 flex items-center justify-center text-outline">
+<svg class="h-48 w-4 stroke-current opacity-40" fill="none" viewbox="0 0 16 192">
+<path d="M0 48 C 8 48, 8 48, 16 48" stroke-width="1.5"></path>
+<path d="M0 48 C 8 48, 8 130, 16 130" stroke-dasharray="3 3" stroke-width="1.5"></path>
+<path d="M0 130 C 8 130, 8 48, 16 48" stroke-dasharray="3 3" stroke-width="1.5"></path>
+</svg>
+</div>
+<!-- TIER 2 -->
+<div class="flex-1 flex flex-col gap-space-md">
+<div class="font-label-xs text-label-xs uppercase text-outline tracking-wider pb-1">
+                Tier 2: Code Symbols
+              </div>
+<!-- Node 2.1 (ACTIVE SELECTION) -->
+<div class="bg-surface-container-high p-space-sm rounded cursor-pointer transition-all shadow-md group ring-1 ring-primary-container" id="node_capture_tx" onclick="selectNode('node_capture_tx')">
+<div class="flex items-center justify-between text-label-xs font-label-xs text-primary mb-1">
+<span class="font-mono">AST_CALLER</span>
+<span class="bg-error/20 text-error px-1 rounded">MUTATED</span>
+</div>
+<div class="font-code-sm text-code-sm text-primary font-bold truncate">
+                  fn capture_payment_transaction()
+                </div>
+<div class="font-label-xs text-label-xs text-on-surface-variant truncate mt-1 font-mono">
+                  ROR: &lt;= 0 → &lt; 0
+                </div>
+</div>
+<!-- Node 2.2 -->
+<div class="bg-surface-container p-space-sm rounded cursor-pointer transition-all hover:bg-surface-container-high group" onclick="selectNode('node_class_vault')">
+<div class="flex items-center justify-between text-label-xs font-label-xs text-outline mb-1">
+<span class="font-mono">AST_CLASS</span>
+<span class="text-outline font-mono">TARGET</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface font-semibold truncate group-hover:text-primary">
+                  class PaymentVault
+                </div>
+<div class="font-label-xs text-label-xs text-outline truncate mt-1">
+                  Direct structural scope
+                </div>
+</div>
+</div>
+<!-- Connector SVG Column 2 -->
+<div class="w-4 shrink-0 flex items-center justify-center text-outline">
+<svg class="h-48 w-4 stroke-current opacity-40" fill="none" viewbox="0 0 16 192">
+<path d="M0 48 C 8 48, 8 48, 16 48" stroke-width="1.5"></path>
+<path d="M0 48 C 8 48, 8 130, 16 130" stroke-width="1.5"></path>
+<path d="M0 130 C 8 130, 8 130, 16 130" stroke-width="1.5"></path>
+</svg>
+</div>
+<!-- TIER 3 -->
+<div class="flex-1 flex flex-col gap-space-md">
+<div class="font-label-xs text-label-xs uppercase text-outline tracking-wider pb-1">
+                Tier 3: Contracts
+              </div>
+<!-- Node 3.1 -->
+<div class="bg-surface-container p-space-sm rounded cursor-pointer transition-all hover:bg-surface-container-high group" onclick="selectNode('node_req_022')">
+<div class="flex items-center justify-between text-label-xs font-label-xs text-outline mb-1">
+<span class="text-error font-mono">REQ-PAY-022</span>
+<span class="bg-error/20 text-error px-1 rounded">RISK</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface font-semibold truncate group-hover:text-primary">
+                  Positive Amount Invariant
+                </div>
+<div class="font-label-xs text-label-xs text-outline truncate mt-1">
+                  Formal SMT assertion invalidated
+                </div>
+</div>
+<!-- Node 3.2 -->
+<div class="bg-surface-container p-space-sm rounded cursor-pointer transition-all hover:bg-surface-container-high group" onclick="selectNode('node_req_018')">
+<div class="flex items-center justify-between text-label-xs font-label-xs text-outline mb-1">
+<span class="text-secondary font-mono">REQ-PAY-018</span>
+<span class="text-secondary font-mono">STALE</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface font-semibold truncate group-hover:text-primary">
+                  Idempotency Key TTL
+                </div>
+<div class="font-label-xs text-label-xs text-outline truncate mt-1">
+                  Transitive callee revalidation
+                </div>
+</div>
+</div>
+<!-- Connector SVG Column 3 -->
+<div class="w-4 shrink-0 flex items-center justify-center text-outline">
+<svg class="h-48 w-4 stroke-current opacity-40" fill="none" viewbox="0 0 16 192">
+<path d="M0 48 C 8 48, 8 48, 16 48" stroke-width="1.5"></path>
+<path d="M0 48 C 8 48, 8 130, 16 130" stroke-width="1.5"></path>
+</svg>
+</div>
+<!-- TIER 4 -->
+<div class="flex-1 flex flex-col gap-space-md">
+<div class="font-label-xs text-label-xs uppercase text-outline tracking-wider pb-1">
+                Tier 4: Test Suites
+              </div>
+<!-- Node 4.1 -->
+<div class="bg-surface-container p-space-sm rounded cursor-pointer transition-all hover:bg-surface-container-high group">
+<div class="flex items-center justify-between text-label-xs font-label-xs text-outline mb-1">
+<span class="text-error font-mono">UNIT_TEST</span>
+<span class="text-error font-mono">MISSED</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface font-semibold truncate group-hover:text-primary">
+                  test_zero_amount
+                </div>
+<div class="font-label-xs text-label-xs text-outline truncate mt-1">
+                  tests/test_currency.py
+                </div>
+</div>
+<!-- Node 4.2 -->
+<div class="bg-surface-container p-space-sm rounded cursor-pointer transition-all hover:bg-surface-container-high group">
+<div class="flex items-center justify-between text-label-xs font-label-xs text-outline mb-1">
+<span class="text-tertiary font-mono">SYNTH_TEST</span>
+<span class="text-tertiary font-mono">CAND-8401</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface font-semibold truncate group-hover:text-primary">
+                  test_gen_boundary
+                </div>
+<div class="font-label-xs text-label-xs text-tertiary truncate mt-1">
+                  Coverage: zero boundary
+                </div>
+</div>
+</div>
+<!-- Connector SVG Column 4 -->
+<div class="w-4 shrink-0 flex items-center justify-center text-outline">
+<svg class="h-48 w-4 stroke-current opacity-40" fill="none" viewbox="0 0 16 192">
+<path d="M0 48 C 8 48, 8 48, 16 48" stroke-width="1.5"></path>
+<path d="M0 130 C 8 130, 8 48, 16 48" stroke-width="1.5"></path>
+<path d="M0 130 C 8 130, 8 130, 16 130" stroke-width="1.5"></path>
+</svg>
+</div>
+<!-- TIER 5 -->
+<div class="flex-1 flex flex-col gap-space-md">
+<div class="font-label-xs text-label-xs uppercase text-outline tracking-wider pb-1">
+                Tier 5: Mutants
+              </div>
+<!-- Node 5.1 -->
+<div class="bg-surface-container p-space-sm rounded cursor-pointer transition-all hover:bg-surface-container-high group">
+<div class="flex items-center justify-between text-label-xs font-label-xs text-outline mb-1">
+<span class="text-error font-mono">M-084</span>
+<span class="bg-error text-on-error px-1 rounded text-label-xs font-bold font-mono">SURVIVED</span>
+</div>
+<div class="font-code-sm text-code-sm text-error font-bold truncate">
+                  ROR: &lt;= to &lt;
+                </div>
+<div class="font-label-xs text-label-xs text-outline truncate mt-1">
+                  Zero amount transaction leak
+                </div>
+</div>
+<!-- Node 5.2 -->
+<div class="bg-surface-container p-space-sm rounded cursor-pointer transition-all hover:bg-surface-container-high group">
+<div class="flex items-center justify-between text-label-xs font-label-xs text-outline mb-1">
+<span class="text-tertiary font-mono">M-085</span>
+<span class="text-tertiary font-mono">KILLED</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface font-semibold truncate group-hover:text-primary">
+                  LCR: or to and
+                </div>
+<div class="font-label-xs text-label-xs text-outline truncate mt-1">
+                  Caught by schema validator
+                </div>
+</div>
+</div>
+<!-- Connector SVG Column 5 -->
+<div class="w-4 shrink-0 flex items-center justify-center text-outline">
+<svg class="h-48 w-4 stroke-current opacity-40" fill="none" viewbox="0 0 16 192">
+<path d="M0 48 C 8 48, 8 48, 16 48" stroke-width="1.5"></path>
+<path d="M0 130 C 8 130, 8 130, 16 130" stroke-width="1.5"></path>
+</svg>
+</div>
+<!-- TIER 6 -->
+<div class="flex-1 flex flex-col gap-space-md">
+<div class="font-label-xs text-label-xs uppercase text-outline tracking-wider pb-1">
+                Tier 6: Evidence
+              </div>
+<!-- Node 6.1 -->
+<div class="bg-surface-container p-space-sm rounded cursor-pointer transition-all hover:bg-surface-container-high group">
+<div class="flex items-center justify-between text-label-xs font-label-xs text-outline mb-1">
+<span class="text-error font-mono">EV-0914</span>
+<span class="text-error font-mono">INVALID</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface font-semibold truncate group-hover:text-primary">
+                  Invariant Proof (022)
+                </div>
+<div class="font-label-xs text-label-xs text-outline truncate mt-1">
+                  Hash mismatch (AST delta)
+                </div>
+</div>
+<!-- Node 6.2 -->
+<div class="bg-surface-container p-space-sm rounded cursor-pointer transition-all hover:bg-surface-container-high group">
+<div class="flex items-center justify-between text-label-xs font-label-xs text-outline mb-1">
+<span class="text-tertiary font-mono">EV-0988</span>
+<span class="text-tertiary font-mono">VALID</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface font-semibold truncate group-hover:text-primary">
+                  CAND-8401 Execution
+                </div>
+<div class="font-label-xs text-label-xs text-outline truncate mt-1">
+                  Pass (Rootless ISO sandbox)
+                </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Selected Node Inspector Flyout (4 cols) -->
+<div class="xl:col-span-4 bg-surface-container-lowest rounded p-space-md flex flex-col justify-between gap-space-sm shadow-inner">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-1">
+<span class="font-label-xs text-label-xs text-outline uppercase tracking-wider font-mono">AST Inspector • Active Target</span>
+<span class="font-label-xs text-label-xs text-primary bg-primary-container/20 px-1.5 py-0.5 rounded font-mono">NODE_SYM_812</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="font-code-lg text-code-lg text-primary font-bold">capture_payment_transaction()</span>
+<span class="font-code-sm text-code-sm text-outline font-mono">src/services/payments_vault.py:152</span>
+</div>
+<!-- Upstream & Downstream Badges -->
+<div class="grid grid-cols-2 gap-space-xs font-code-sm text-code-sm mt-1">
+<div class="bg-surface-container p-space-xs rounded flex flex-col">
+<span class="text-outline text-label-xs font-label-xs uppercase">Upstream Trigger</span>
+<span class="text-on-surface font-mono text-xs">Commit e93f7a1</span>
+<span class="text-error text-label-xs">payments_vault.py:148</span>
+</div>
+<div class="bg-surface-container p-space-xs rounded flex flex-col">
+<span class="text-outline text-label-xs font-label-xs uppercase">Impacted Artifacts</span>
+<span class="text-on-surface font-mono text-xs">REQ-022, EV-0914</span>
+<span class="text-error text-label-xs">1 Mutant Escaped</span>
+</div>
+</div>
+<!-- AST Diff Snippet -->
+<div class="mt-1 flex flex-col gap-1">
+<span class="font-label-xs text-label-xs text-outline uppercase font-mono">AST Boundary Diff</span>
+<div class="bg-surface-container-high rounded p-space-sm font-mono text-code-sm text-code-sm overflow-x-auto leading-relaxed">
+<div class="text-outline select-none text-label-xs">// line 150: payments_vault.py</div>
+<div class="text-on-surface-variant">  def capture_payment_transaction(account, amount_cents):</div>
+<div class="bg-error/15 text-error px-1 rounded flex items-center gap-2">
+<span class="select-none font-bold">-</span>
+<span>if amount_cents &lt;= 0:</span>
+</div>
+<div class="bg-tertiary-container/20 text-tertiary px-1 rounded flex items-center gap-2">
+<span class="select-none font-bold">+</span>
+<span>if amount_cents &lt; 0:  # defect: permits zero-cent</span>
+</div>
+<div class="text-on-surface-variant">      raise InvalidTransactionError("Non-positive amount")</div>
+</div>
+</div>
+<!-- Invalidation Diagnostic -->
+<div class="bg-surface-container p-space-sm rounded flex flex-col gap-1 mt-1">
+<div class="flex items-center gap-1.5 text-error font-label-xs text-label-xs font-semibold uppercase">
+<span class="material-symbols-outlined text-sm">warning</span>
+<span>Deterministic Invalidation Reason</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                AST hash for symbol <code class="text-primary font-mono font-semibold">capture_payment_transaction</code> changed from <code class="text-outline font-mono">0x4b78ae</code> to <code class="text-outline font-mono">0x91d4e0</code>. Boundary operator modified at line 152 breaks invariant <code class="text-on-surface font-mono">REQ-PAY-022</code>. SMT proof invalidated.
+              </p>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-outline font-mono">Fingerprint: sha256:d812..9f8</span>
+<button class="bg-surface-container hover:bg-surface-container-high text-primary px-2.5 py-1 rounded font-label-xs text-label-xs font-mono flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-xs">terminal</span>
+<span>Open Symbol in Terminal</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. BOTTOM SPLIT: EVALUATION PLANNER & EVIDENCE LIFECYCLE LEDGER -->
+<section class="grid grid-cols-1 xl:grid-cols-2 gap-space-lg w-full">
+<!-- A. INCREMENTAL EVALUATION PLANNER (LEFT 50%) -->
+<div class="bg-surface-container-low rounded p-space-md flex flex-col gap-space-md shadow-sm">
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-base">task_alt</span>
+<span class="font-headline-md text-headline-md text-on-surface">Incremental Evaluation Planner</span>
+</div>
+<span class="font-label-xs text-label-xs text-tertiary bg-tertiary-container/20 px-2 py-0.5 rounded font-mono font-semibold">
+            Conservative Plan v3
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant bg-surface-container-lowest p-space-sm rounded">
+          SpecGuard re-verifies only modified AST call paths and transitive dependents. <strong>84 evidence records safely reused</strong> based on identical dependency fingerprints (not timestamps or filenames).
+        </p>
+<!-- Categorized Plan Tasks -->
+<div class="flex flex-col gap-space-sm">
+<!-- Task 1 -->
+<div class="bg-surface-container p-space-sm rounded flex flex-col gap-1 transition-colors hover:bg-surface-container-high">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center justify-center w-5 h-5 rounded bg-primary-container text-on-primary-container font-label-xs text-label-xs font-bold">1</span>
+<span class="font-code-sm text-code-sm font-semibold text-on-surface">Re-execute Formal Invariant Verification</span>
+</div>
+<span class="font-label-xs text-label-xs text-primary font-mono">EST: 1.4s • ISO-CONTAINER</span>
+</div>
+<div class="pl-7 flex flex-col gap-0.5 text-body-sm font-body-sm text-on-surface-variant">
+<div>Contract: <span class="font-mono text-primary">REQ-PAY-022</span> • Target: <span class="font-mono text-on-surface">payments_vault.py:152</span></div>
+<div class="font-label-xs text-label-xs text-outline font-mono">Action: SMT Z3 Solver pass on non-negative balance domain</div>
+</div>
+</div>
+<!-- Task 2 -->
+<div class="bg-surface-container p-space-sm rounded flex flex-col gap-1 transition-colors hover:bg-surface-container-high">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center justify-center w-5 h-5 rounded bg-primary-container text-on-primary-container font-label-xs text-label-xs font-bold">2</span>
+<span class="font-code-sm text-code-sm font-semibold text-on-surface">Execute Synthesized Test Candidate CAND-8401</span>
+</div>
+<span class="font-label-xs text-label-xs text-primary font-mono">EST: 0.8s • DOCKER</span>
+</div>
+<div class="pl-7 flex flex-col gap-0.5 text-body-sm font-body-sm text-on-surface-variant">
+<div>Target: Kill Surviving Mutant <span class="font-mono text-error">Mutant M-084 (ROR: &lt;= to &lt;)</span></div>
+<div class="font-label-xs text-label-xs text-outline font-mono">Suite: tests/test_payment_vault_boundary.py:test_zero_dollar_rejection()</div>
+</div>
+</div>
+<!-- Task 3 (BLOCKED) -->
+<div class="bg-surface-container p-space-sm rounded flex flex-col gap-1 transition-colors hover:bg-surface-container-high">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center justify-center w-5 h-5 rounded bg-error-container text-on-error-container font-label-xs text-label-xs font-bold">!</span>
+<span class="font-code-sm text-code-sm font-semibold text-on-surface">Blocked Requirement: Manual Clarification Needed</span>
+</div>
+<span class="font-label-xs text-label-xs text-error bg-error-container/30 px-1.5 py-0.5 rounded font-mono font-bold">BLOCKED</span>
+</div>
+<div class="pl-7 flex flex-col gap-0.5 text-body-sm font-body-sm text-on-surface-variant">
+<div>Contract: <span class="font-mono text-error">REQ-PAY-024</span> (Fractional currency rounding ambiguity)</div>
+<div class="font-label-xs text-label-xs text-outline font-mono">Reason: Semantic conflict between ISO-4217 spec and vault JPY zero-decimal handler</div>
+</div>
+</div>
+<!-- Reused Evidence Group (Zero Cost) -->
+<div class="bg-surface-container-lowest p-space-sm rounded flex items-center justify-between text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-base">verified</span>
+<span class="font-code-sm text-code-sm text-on-surface">Verified Safe to Reuse: 84 Evidence Records</span>
+</div>
+<span class="font-label-xs text-label-xs text-tertiary font-mono">0.0s • CACHE VALID</span>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-outline font-mono">Plan Hash: blake3:99c1..4e2</span>
+<button class="bg-primary hover:bg-primary-fixed-dim text-on-primary px-3 py-1 rounded font-label-xs text-label-xs font-semibold flex items-center gap-1 transition-colors" onclick="alert('Executing Conservative Plan v3 in isolated rootless container...')">
+<span class="material-symbols-outlined text-xs">play_arrow</span>
+<span>Execute 2 Pending Actions</span>
+</button>
+</div>
+</div>
+<!-- B. EVIDENCE LIFECYCLE LEDGER & REGRESSION RADAR (RIGHT 50%) -->
+<div class="bg-surface-container-low rounded p-space-md flex flex-col justify-between gap-space-md shadow-sm">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-base">list_alt</span>
+<span class="font-headline-md text-headline-md text-on-surface">Evidence Lifecycle State Ledger</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline font-mono">AUDIT TRAIL</span>
+</div>
+<!-- Ledger Status Counter Pills -->
+<div class="flex flex-wrap items-center gap-1 font-label-xs text-label-xs">
+<span class="bg-surface-container-lowest text-on-surface px-2 py-0.5 rounded font-mono">
+              CURRENT: <strong class="text-tertiary">165</strong>
+</span>
+<span class="bg-surface-container-lowest text-on-surface px-2 py-0.5 rounded font-mono">
+              STALE: <strong class="text-secondary">16</strong>
+</span>
+<span class="bg-surface-container-lowest text-on-surface px-2 py-0.5 rounded font-mono">
+              SUPERSEDED: <strong class="text-outline">84</strong>
+</span>
+<span class="bg-surface-container-lowest text-on-surface px-2 py-0.5 rounded font-mono">
+              INVALIDATED: <strong class="text-error">4</strong>
+</span>
+<span class="bg-surface-container-lowest text-on-surface px-2 py-0.5 rounded font-mono">
+              REVALIDATED: <strong class="text-primary">31</strong>
+</span>
+</div>
+<!-- Evidence Transition Table -->
+<div class="overflow-x-auto rounded">
+<table class="w-full text-left font-code-sm text-code-sm">
+<thead>
+<tr class="bg-surface-container-lowest text-outline text-label-xs font-label-xs uppercase">
+<th class="py-1.5 px-2 font-mono">Record ID</th>
+<th class="py-1.5 px-2">Symbol Target</th>
+<th class="py-1.5 px-2">State Transition</th>
+<th class="py-1.5 px-2">Deterministic Cause</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<tr class="bg-surface-container hover:bg-surface-container-high transition-colors">
+<td class="py-1.5 px-2 font-mono text-error font-semibold">EV-0914</td>
+<td class="py-1.5 px-2 font-mono text-on-surface truncate max-w-[120px]">payments_vault:amount_cents</td>
+<td class="py-1.5 px-2">
+<span class="inline-flex items-center gap-1 text-label-xs font-label-xs font-mono">
+<span class="text-outline">CURRENT</span>
+<span class="text-error">→ INVALIDATED</span>
+</span>
+</td>
+<td class="py-1.5 px-2 text-outline text-body-sm truncate max-w-[180px]">Commit e93f7a1 changed boundary operator</td>
+</tr>
+<tr class="bg-surface-container-lowest hover:bg-surface-container-high transition-colors">
+<td class="py-1.5 px-2 font-mono text-secondary font-semibold">EV-0915</td>
+<td class="py-1.5 px-2 font-mono text-on-surface truncate max-w-[120px]">idempotency_cache_ttl</td>
+<td class="py-1.5 px-2">
+<span class="inline-flex items-center gap-1 text-label-xs font-label-xs font-mono">
+<span class="text-outline">CURRENT</span>
+<span class="text-secondary">→ STALE</span>
+</span>
+</td>
+<td class="py-1.5 px-2 text-outline text-body-sm truncate max-w-[180px]">Transitive caller dependency updated</td>
+</tr>
+<tr class="bg-surface-container hover:bg-surface-container-high transition-colors">
+<td class="py-1.5 px-2 font-mono text-primary font-semibold">EV-0888</td>
+<td class="py-1.5 px-2 font-mono text-on-surface truncate max-w-[120px]">currency_converter:jpy</td>
+<td class="py-1.5 px-2">
+<span class="inline-flex items-center gap-1 text-label-xs font-label-xs font-mono">
+<span class="text-outline">SUPERSEDED</span>
+<span class="text-tertiary">→ REVALIDATED</span>
+</span>
+</td>
+<td class="py-1.5 px-2 text-outline text-body-sm truncate max-w-[180px]">Ran isolated container verification pass</td>
+</tr>
+<tr class="bg-surface-container-lowest hover:bg-surface-container-high transition-colors">
+<td class="py-1.5 px-2 font-mono text-tertiary font-semibold">EV-0842</td>
+<td class="py-1.5 px-2 font-mono text-on-surface truncate max-w-[120px]">webhook_hmac_sha256</td>
+<td class="py-1.5 px-2">
+<span class="inline-flex items-center gap-1 text-label-xs font-label-xs font-mono text-tertiary">
+                      CURRENT (REUSED)
+                    </span>
+</td>
+<td class="py-1.5 px-2 text-outline text-body-sm truncate max-w-[180px]">Identical AST &amp; Mock fingerprints</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Strict Assurance Principle Banner -->
+<div class="bg-surface-container-lowest p-space-sm rounded flex items-start gap-space-sm mt-space-xs">
+<span class="material-symbols-outlined text-primary text-base shrink-0 mt-0.5">policy</span>
+<div class="flex flex-col gap-0.5">
+<span class="font-label-xs text-label-xs uppercase font-mono text-on-surface font-semibold">Assurance Principle</span>
+<p class="font-body-sm text-body-sm text-outline">
+              Incremental assurance never assumes unchanged filenames imply unchanged semantics. Invalidation is determined strictly by AST symbol fingerprints, SMT contract bindings, and container execution seeds.
+            </p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<script>
+  function selectNode(nodeId) {
+    console.log("Selected topology node:", nodeId);
+  }
+</script></main></div></body></html>

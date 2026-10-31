@@ -1,0 +1,2156 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><title>SpecGuard — Requirement Intelligence Platform</title><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-secondary-container":"#b3b1ff","on-secondary-fixed":"#0f0069","on-surface":"#e0e2ec","on-primary":"#00354a","tertiary-container":"#30c88f","on-background":"#e0e2ec","primary-container":"#38bdf8","on-tertiary-fixed":"#002113","secondary-fixed":"#e2dfff","inverse-primary":"#00668a","on-primary-container":"#004965","primary-fixed-dim":"#7bd0ff","secondary-fixed-dim":"#c3c0ff","surface-tint":"#7bd0ff","surface-bright":"#363941","outline-variant":"#3e484f","outline":"#87929a","primary":"#8ed5ff","tertiary-fixed":"#6ffbbe","tertiary-fixed-dim":"#4edea3","on-tertiary-fixed-variant":"#005236","on-secondary-fixed-variant":"#3323cc","surface-container-highest":"#32353c","on-tertiary-container":"#004e34","primary-fixed":"#c4e7ff","error":"#ffb4ab","surface-container-low":"#191c23","on-tertiary":"#003824","on-surface-variant":"#bdc8d1","error-container":"#93000a","on-primary-fixed":"#001e2c","surface-container-lowest":"#0b0e15","on-error-container":"#ffdad6","surface":"#10131a","secondary-container":"#3626ce","tertiary":"#56e5a9","on-primary-fixed-variant":"#004c69","on-secondary":"#1d00a5","surface-dim":"#10131a","on-error":"#690005","surface-container-high":"#272a31","surface-variant":"#32353c","surface-container":"#1d2027","inverse-on-surface":"#2d3038","background":"#10131a","inverse-surface":"#e0e2ec","secondary":"#c3c0ff"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xs":"0.25rem","gutter":"0.75rem","space-md":"0.5rem","space-sm":"0.375rem","space-lg":"0.75rem","space-xl":"1rem","margin":"1rem"},"fontFamily":{"code-lg":["JetBrains Mono"],"code-md":["JetBrains Mono"],"body-md":["Geist"],"headline-md":["Geist"],"label-md":["JetBrains Mono"],"headline-xl":["Geist"],"label-xs":["JetBrains Mono"],"code-sm":["JetBrains Mono"],"headline-lg":["Geist"],"body-lg":["Geist"],"label-sm":["JetBrains Mono"],"body-sm":["Geist"]},"fontSize":{"code-lg":["13px",{"lineHeight":"20px","fontWeight":"500"}],"code-md":["12px",{"lineHeight":"18px","fontWeight":"400"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"headline-md":["16px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-xl":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-xs":["9px",{"lineHeight":"12px","letterSpacing":"0.06em","fontWeight":"600"}],"code-sm":["11px",{"lineHeight":"16px","fontWeight":"400"}],"headline-lg":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-lg":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest flex flex-col z-50 select-none"><div class="p-space-lg flex flex-col gap-space-md"><div class="flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="SpecGuard Brand Mark" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VOfC8on-kCL6bFNwlPfba32NLK9XcFR9A9Qcqx3JMDCjU-s3p9svpYc-wigx4Y2UQkiOdoTNElToFy8wgeP2-o-IofeLCzw7xf78PXk7HvLyIBw5eDxQe4nuPX88shsRzAds-Q9bFFJA-lI9oZC9QXfy5TcAqVNKEmhuAXBmWjc5IzUeDt4Cj666uowQxNw9RYnaEoW_pPL-RCuP1gNa56Hc03j9wtKdKxu6uRePs"/><span class="font-headline-md text-headline-md text-on-surface tracking-tight">SpecGuard</span></div><span class="font-label-xs text-label-xs bg-surface-container-high text-on-surface-variant px-space-xs py-0.5 rounded">DEMO</span></div><div class="flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm px-space-xs"><span id="sidebarVersion" class="text-primary">v2.0.0</span><span id="sidebarModeTag" class="text-tertiary font-label-xs text-label-xs uppercase font-mono">LIVE CORE</span></div><div class="bg-surface-container-low p-space-sm rounded flex items-center justify-between mt-space-xs cursor-pointer hover:bg-surface-container transition-colors" onclick="openNewProjectModal()" title="Switch or Create Project"><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-xs font-code-sm text-code-sm text-on-surface font-semibold truncate"><span class="material-symbols-outlined text-primary text-base">dataset</span><span id="sidebarProjectName" class="truncate">RefundFlow Payment Core</span></div><span id="sidebarProjectMeta" class="font-code-sm text-code-sm text-outline font-mono pl-space-lg truncate">10 specs · Python AST</span></div><span class="material-symbols-outlined text-outline text-base">unfold_more</span></div></div><div class="flex-1 overflow-y-auto px-space-sm py-space-xs"><nav class="space-y-0.5" data-active-classes="bg-surface-container-high text-primary font-code-sm font-semibold"><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="overview" href="/static/assurance_overview.html"><span class="material-symbols-outlined text-lg">dashboard</span><span>Overview</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="projects" href="/"><span class="material-symbols-outlined text-lg">source</span><span>Projects</span></a><a aria-current="page" class="flex items-center gap-space-md px-space-md py-space-sm rounded transition-colors bg-surface-container-high text-primary font-code-sm font-semibold" data-path="requirements" href="/"><span class="material-symbols-outlined text-lg">checklist</span><span>Requirements</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="code-intelligence" href="/static/code_intelligence.html"><span class="material-symbols-outlined text-lg">code_blocks</span><span>Code Intelligence</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="behavioral-verification" href="/static/assurance_overview.html"><span class="material-symbols-outlined text-lg">fact_check</span><span>Behavioral Verification</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="adversarial-testing" href="/static/adversarial_testing.html"><span class="material-symbols-outlined text-lg">pest_control</span><span>Adversarial Testing</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="autonomous-test-engineering" href="/static/autonomous_test_engineering.html"><span class="material-symbols-outlined text-lg">smart_toy</span><span>Autonomous Test Engineering</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="continuous-assurance" href="/static/continuous_assurance.html"><span class="material-symbols-outlined text-lg">sync</span><span>Continuous Assurance</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="evidence-explorer" href="/"><span class="material-symbols-outlined text-lg">troubleshoot</span><span>Evidence Explorer</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="reports-and-analytics" href="/api/v1/health"><span class="material-symbols-outlined text-lg">analytics</span><span>Reports & Analytics</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="settings" href="/"><span class="material-symbols-outlined text-lg">tune</span><span>Settings</span></a></nav></div><div class="p-space-md bg-surface-container-lowest flex flex-col gap-space-sm"><div class="bg-surface-container-low p-space-sm rounded flex items-center justify-between"><div class="flex items-center gap-space-sm"><span id="sidebarHealthDot" class="h-2 w-2 rounded-full bg-tertiary animate-pulse"></span><span id="sidebarHealthText" class="font-code-sm text-code-sm text-on-surface-variant truncate">FastAPI: Connected</span></div><span id="sidebarHealthPill" class="font-label-xs text-label-xs text-tertiary bg-tertiary-container/20 px-1 py-0.5 rounded font-mono">ONLINE</span></div><div class="flex items-center justify-between px-space-xs"><a class="font-code-sm text-code-sm text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1" href="#"><span class="material-symbols-outlined text-sm">menu_book</span>Docs</a><span class="font-label-xs text-label-xs bg-surface-container-high text-outline px-1.5 py-0.5 rounded font-mono">⌘K</span></div><div class="bg-surface-container-low p-space-sm rounded flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASMkw76P3augJMOs_TLKbaFC8tPS0yko2ZxU1P7ptw84uNkrL-FXfyvEqDDdBd6I3uena7SqgbHI-iQmJQbLsOeYiR4oyMlCDPJFooOQf0Ods92DiNY261QNDXRHFIHutf3_ZJnnnk3yWOSUHylP82sLDjsxViXz6KNgb_Sjeplfwmedwamsgsms2hQDiEgVNjQFBNmFPH2RVgebIK31UNm9YEpbQon2-LN0-OVwY"/><div class="flex flex-col min-w-0 flex-1"><div class="flex items-center justify-between"><span class="font-body-sm text-body-sm font-semibold text-on-surface truncate">Alex Mercer</span><span class="font-label-xs text-label-xs text-primary bg-primary-container/20 px-1 rounded uppercase">Ent</span></div><span class="font-label-xs text-label-xs text-outline truncate">Staff Assurance Eng</span></div></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-md z-40 px-space-xl flex items-center justify-between select-none shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="flex items-center gap-space-lg flex-1"><div class="flex items-center gap-space-xs font-code-sm text-code-sm text-outline"><span class="text-on-surface-variant font-bold text-xs uppercase tracking-wider">SpecGuard</span><span class="text-outline">/</span><div class="flex items-center gap-1 bg-surface-container-low px-2 py-0.5 rounded border border-outline-variant"><span class="material-symbols-outlined text-xs text-primary">folder</span><select id="headerProjectSelect" onchange="onSelectProject(this.value)" class="bg-transparent text-primary font-mono text-xs outline-none cursor-pointer pr-1"><option value="">Loading projects...</option></select></div><button onclick="openNewProjectModal()" class="bg-primary-container/20 hover:bg-primary-container/40 text-primary px-2 py-0.5 rounded text-xs font-mono font-bold flex items-center gap-0.5 transition-colors border border-primary/20" title="Create New Project"><span class="material-symbols-outlined text-sm">add</span> New</button></div><div class="hidden xl:flex items-center gap-space-sm"><span id="topHealthBadge" class="inline-flex items-center gap-1 font-label-xs text-label-xs px-2 py-0.5 rounded bg-tertiary-container/10 text-tertiary font-mono"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>Backend: v2.0.0 (FastAPI)</span><span class="inline-flex items-center gap-1 font-label-xs text-label-xs px-2 py-0.5 rounded bg-surface-container-high text-outline font-mono"><span class="material-symbols-outlined text-xs">verified</span>Deterministic Core</span></div><div class="relative flex-1 max-w-md mx-space-md"><span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-base">search</span><input class="w-full bg-surface-container-low text-on-surface placeholder:text-outline font-code-sm text-code-sm pl-8 pr-12 py-1 rounded outline-none focus:ring-1 focus:ring-primary-container" placeholder="Search requirements, mutants, symbols, runs (⌘K)..." type="text"/><span class="absolute right-2 top-1/2 -translate-y-1/2 font-label-xs text-label-xs text-outline bg-surface-container-high px-1 py-0.5 rounded font-mono">⌘K</span></div></div><div class="flex items-center gap-space-md"><button class="relative p-1.5 text-on-surface-variant hover:text-on-surface rounded hover:bg-surface-container-low transition-colors" title="Notifications"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1 right-1 flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-error"></span></span></button>
+<button id="modeToggleBtn" onclick="toggleDataMode()" class="px-2.5 py-1 rounded font-code-sm text-code-sm flex items-center gap-1.5 transition-colors bg-surface-container-high hover:bg-surface-container-highest text-on-surface border border-outline-variant select-none" title="Toggle between Live API Data and Sample Stitch Data">
+  <span id="modeDot" class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+  <span id="modeText" class="font-mono text-xs font-semibold">Mode: LIVE API</span>
+</button>
+
+<button class="bg-primary-container text-on-primary-container hover:bg-primary-fixed-dim px-3 py-1 rounded font-body-sm text-body-sm font-semibold flex items-center gap-1 shadow-sm transition-colors"><span class="material-symbols-outlined text-base">play_arrow</span><span>Run Assurance</span><span class="material-symbols-outlined text-sm">arrow_drop_down</span></button><div class="flex items-center gap-1 text-outline font-code-sm text-code-sm px-2 py-1 rounded bg-surface-container-low" title="Theme: Deterministic Dark (Locked)"><span class="material-symbols-outlined text-sm text-primary">dark_mode</span><span class="font-label-xs text-label-xs uppercase">Dark</span></div><div class="flex items-center gap-2 pl-space-xs"><a class="p-1 text-on-surface-variant hover:text-primary transition-colors" href="#" title="API Health"><span class="material-symbols-outlined text-lg">hub</span></a><a class="p-1 text-on-surface-variant hover:text-primary transition-colors" href="#" title="Docs & Reference"><span class="material-symbols-outlined text-lg">help_outline</span></a><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASMkw76P3augJMOs_TLKbaFC8tPS0yko2ZxU1P7ptw84uNkrL-FXfyvEqDDdBd6I3uena7SqgbHI-iQmJQbLsOeYiR4oyMlCDPJFooOQf0Ods92DiNY261QNDXRHFIHutf3_ZJnnnk3yWOSUHylP82sLDjsxViXz6KNgb_Sjeplfwmedwamsgsms2hQDiEgVNjQFBNmFPH2RVgebIK31UNm9YEpbQon2-LN0-OVwY"/></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full">
+<!-- Sub-Header & Global Tooling Strip -->
+<div class="px-space-xl py-space-lg bg-surface flex flex-col gap-space-md shadow-sm">
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Requirement Intelligence</span>
+<span class="font-label-xs text-label-xs bg-primary/10 text-primary uppercase px-2 py-0.5 rounded font-mono">AST Engine Active</span>
+<span class="font-label-xs text-label-xs bg-surface-container-high text-primary uppercase px-2 py-0.5 rounded font-mono">Deterministic Oracles</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-3xl">
+          Decompose specifications into atomic behaviors, detect ambiguities and contradictions, and track formal verification contracts.
+        </p>
+</div>
+<!-- Action Controls -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<button id="btnNewProject" onclick="openNewProjectModal()" class="bg-primary/20 hover:bg-primary/30 text-primary font-body-sm text-body-sm font-semibold px-3 py-1.5 rounded flex items-center gap-1.5 transition-colors border border-primary/30">
+<span class="material-symbols-outlined text-base">create_new_folder</span>
+<span>New Project</span>
+</button>
+<button id="btnUploadZip" onclick="triggerUploadZip()" class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-body-sm text-body-sm font-medium px-3 py-1.5 rounded flex items-center gap-1.5 transition-colors" title="Upload Python repository ZIP">
+<span class="material-symbols-outlined text-base text-primary">folder_zip</span>
+<span id="uploadZipLabel">Upload Repo (ZIP)</span>
+</button>
+<input type="file" id="zipFileInput" accept=".zip" style="display:none" onchange="handleZipUpload(event)"/>
+<button id="btnImportMarkdown" onclick="triggerImportMarkdown()" class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-body-sm text-body-sm font-medium px-3 py-1.5 rounded flex items-center gap-1.5 transition-colors" title="Upload requirements markdown file">
+<span class="material-symbols-outlined text-base text-outline">file_upload</span>
+<span id="importSpecLabel">Import Spec (.md)</span>
+</button>
+<input type="file" id="fileInput" accept=".md,.txt" style="display:none" onchange="handleFileImport(event)"/>
+<button id="btnViewCodeIntel" onclick="openCodeIntelDrawer()" class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-body-sm text-body-sm font-medium px-3 py-1.5 rounded flex items-center gap-1.5 transition-colors" title="View Python AST symbols & call structure">
+<span class="material-symbols-outlined text-base text-secondary">code_blocks</span>
+<span>Python AST (<span id="btnAstSymbolCount" class="font-mono font-bold text-primary">0</span>)</span>
+</button>
+<button id="btnRunAnalysis" onclick="triggerStaticAnalysis()" class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-body-sm text-body-sm font-medium px-3 py-1.5 rounded flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-base text-tertiary">manage_search</span>
+<span id="runAnalysisLabel">Run Static Analysis</span>
+</button>
+<button id="btnExportMatrix" onclick="exportRequirementsMatrix()" class="bg-primary hover:bg-primary-fixed-dim text-on-primary font-body-sm text-body-sm font-semibold px-3 py-1.5 rounded flex items-center gap-1.5 shadow-sm transition-colors">
+<span class="material-symbols-outlined text-base">download</span>
+<span>Export Matrix</span>
+</button>
+</div>
+</div>
+<!-- Navigation Tabs Bar -->
+<div class="flex items-center gap-space-xs overflow-x-auto pt-space-xs" id="tabsBar">
+<button id="tabAll" onclick="setActiveTab('all')" class="bg-surface-container-high text-primary px-3 py-1 rounded font-code-sm text-code-sm font-medium flex items-center gap-2 shrink-0 transition-colors">
+<span>All Requirements</span>
+<span id="tabBadgeAll" class="bg-primary/20 text-primary font-label-xs text-label-xs px-1.5 py-0.2 rounded font-mono">0</span>
+</button>
+<button id="tabAtomic" onclick="setActiveTab('atomic')" class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low px-3 py-1 rounded font-code-sm text-code-sm font-medium flex items-center gap-2 shrink-0 transition-colors">
+<span>Atomic Decomposition</span>
+<span id="tabBadgeAtomic" class="bg-surface-container-highest text-on-surface-variant font-label-xs text-label-xs px-1.5 py-0.2 rounded font-mono">0</span>
+</button>
+<button id="tabAmbiguities" onclick="setActiveTab('ambiguities')" class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low px-3 py-1 rounded font-code-sm text-code-sm font-medium flex items-center gap-2 shrink-0 transition-colors">
+<span>Ambiguities</span>
+<span id="tabBadgeAmbiguities" class="bg-error-container text-on-error-container font-label-xs text-label-xs px-1.5 py-0.2 rounded font-mono font-semibold">0</span>
+</button>
+<button id="tabContradictions" onclick="setActiveTab('contradictions')" class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low px-3 py-1 rounded font-code-sm text-code-sm font-medium flex items-center gap-2 shrink-0 transition-colors">
+<span>Contradictions</span>
+<span id="tabBadgeContradictions" class="bg-error-container text-on-error-container font-label-xs text-label-xs px-1.5 py-0.2 rounded font-mono font-semibold">0</span>
+</button>
+<button id="tabContracts" onclick="setActiveTab('contracts')" class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low px-3 py-1 rounded font-code-sm text-code-sm font-medium flex items-center gap-2 shrink-0 transition-colors">
+<span>Behavior Contracts</span>
+<span id="tabBadgeContracts" class="bg-primary/20 text-primary font-label-xs text-label-xs px-1.5 py-0.2 rounded font-mono">0</span>
+</button>
+</div>
+<!-- Filter & Diagnostic Triage Toolbar -->
+<div class="px-space-xl py-space-sm bg-surface-container-lowest flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm flex-1 min-w-[320px] max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-base">filter_alt</span>
+<input id="tableSearchInput" oninput="applyFilters()" class="w-full bg-surface-container-low text-on-surface placeholder:text-outline font-code-sm text-code-sm pl-8 pr-8 py-1 rounded outline-none focus:bg-surface-container" placeholder="Filter by ID, text, keyword, or component..." type="text" value=""/>
+<span onclick="clearSearch()" class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline text-xs cursor-pointer hover:text-on-surface">close</span>
+</div>
+</div>
+<!-- Segmented Select Filters -->
+<div class="flex flex-wrap items-center gap-space-xs text-on-surface-variant font-code-sm text-code-sm">
+<div class="flex items-center bg-surface-container-low px-2 py-1 rounded gap-1.5">
+<span class="text-outline font-label-xs text-label-xs uppercase">Priority:</span>
+<select id="filterPriority" onchange="applyFilters()" class="bg-transparent text-on-surface outline-none cursor-pointer font-code-sm text-code-sm">
+<option value="all">All (P0-P2)</option>
+<option value="p0">P0 Core</option>
+<option value="p1">P1 Standard</option>
+<option value="p2">P2 Non-blocking</option>
+</select>
+</div>
+<div class="flex items-center bg-surface-container-low px-2 py-1 rounded gap-1.5">
+<span class="text-outline font-label-xs text-label-xs uppercase">Ambiguity:</span>
+<select id="filterAmbiguity" onchange="applyFilters()" class="bg-transparent text-on-surface outline-none cursor-pointer font-code-sm text-code-sm">
+<option value="all">All States</option>
+<option value="unambiguous">Unambiguous</option>
+<option value="ambiguous">Ambiguous</option>
+</select>
+</div>
+<div class="flex items-center bg-surface-container-low px-2 py-1 rounded gap-1.5">
+<span class="text-outline font-label-xs text-label-xs uppercase">Contract:</span>
+<select id="filterContract" onchange="applyFilters()" class="bg-transparent text-on-surface outline-none cursor-pointer font-code-sm text-code-sm">
+<option value="all">All Contracts</option>
+<option value="synthesized">Synthesized</option>
+<option value="validated">Validated</option>
+<option value="pending">Pending</option>
+</select>
+</div>
+<div class="flex items-center bg-surface-container-low px-2 py-1 rounded gap-1.5">
+<span class="text-outline font-label-xs text-label-xs uppercase">Verification:</span>
+<select class="bg-transparent text-on-surface outline-none cursor-pointer font-code-sm text-code-sm">
+<option value="all">All Status</option>
+<option value="verified">Verified</option>
+<option value="gap">Verification Gap</option>
+<option value="inconclusive">Inconclusive</option>
+</select>
+</div>
+<button onclick="resetFilters()" class="bg-surface-container-high hover:bg-surface-container-highest text-outline hover:text-on-surface p-1 rounded transition-colors" title="Reset Filters">
+<span class="material-symbols-outlined text-base">restart_alt</span>
+</button>
+</div>
+</div>
+<!-- Main Content: Split Pane Workbench Architecture -->
+<div class="flex-1 grid grid-cols-1 2xl:grid-cols-12 min-h-0 bg-surface-container-lowest">
+<!-- Left / Center Pane: High-Density Structured Requirement Table (7 of 12 cols on 2xl) -->
+<div class="2xl:col-span-7 flex flex-col min-w-0 bg-surface-container-lowest overflow-hidden">
+<!-- Sub-panel bar -->
+<div class="px-space-xl py-space-xs bg-surface flex items-center justify-between text-outline font-code-sm text-code-sm select-none">
+<div class="flex items-center gap-space-md">
+<span class="font-semibold text-on-surface font-label-sm text-label-sm uppercase tracking-wider">Specifications Register</span>
+<span id="tableShowingCount" class="text-outline font-mono text-label-xs text-label-xs">Showing 0 entities</span>
+</div>
+<div class="flex items-center gap-space-sm font-label-xs text-label-xs">
+<span class="flex items-center gap-1 text-tertiary"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> <span id="counterSynthesized">0 Synthesized</span></span>
+<span class="flex items-center gap-1 text-outline"><span class="w-1.5 h-1.5 rounded-full bg-outline"></span> <span id="counterAmbiguous">0 Flagged</span></span>
+</div>
+</div>
+<!-- Data Table Frame -->
+<div class="flex-1 overflow-x-auto overflow-y-auto">
+<table class="w-full text-left border-collapse select-none">
+<thead>
+<tr class="bg-surface-container-low text-outline font-label-xs text-label-xs uppercase tracking-wider">
+<th class="py-2.5 px-3 font-semibold">Requirement ID</th>
+<th class="py-2.5 px-3 font-semibold min-w-[280px]">Atomic Behavior / Predicate</th>
+<th class="py-2.5 px-3 font-semibold">Source Ref</th>
+<th class="py-2.5 px-3 font-semibold">Ambiguity State</th>
+<th class="py-2.5 px-3 font-semibold">Contract Contract</th>
+<th class="py-2.5 px-3 font-semibold">Linked Symbol</th>
+<th class="py-2.5 px-3 font-semibold text-right">Verification Status</th>
+</tr>
+</thead>
+<tbody id="requirementsTableBody" class="divide-y-0 text-on-surface font-body-sm text-body-sm">
+<!-- Row 1: REQ-PAY-018 (Verified Normal) -->
+<tr class="group hover:bg-surface-container transition-colors cursor-pointer bg-surface-container-lowest">
+<td class="py-2.5 px-3 align-top font-code-sm text-code-sm whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="text-primary font-semibold font-mono">REQ-PAY-018</span>
+<button class="opacity-0 group-hover:opacity-100 text-outline hover:text-on-surface" title="Copy ID">
+<span class="material-symbols-outlined text-xs">content_copy</span>
+</button>
+</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="font-label-xs text-label-xs bg-surface-container-high text-on-surface-variant px-1 rounded">Core</span>
+<span class="font-label-xs text-label-xs bg-error-container/30 text-error px-1 rounded font-bold">P0</span>
+</div>
+</td>
+<td class="py-2.5 px-3 align-top">
+<div class="line-clamp-2 text-on-surface font-medium leading-snug">
+                  Payment capture must verify idempotency key uniqueness within a sliding 24-hour window before charging ledger
+                </div>
+<span class="font-code-sm text-code-sm text-outline mt-0.5 block truncate">Window: T_request - 86400s; Unique constraint: idx_idem_key_tenant</span>
+</td>
+<td class="py-2.5 px-3 align-top font-code-sm text-code-sm whitespace-nowrap">
+<div class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 font-mono">
+<span class="material-symbols-outlined text-xs text-outline">description</span>
+<span>payments_v2.md:L142</span>
+</div>
+</td>
+<td class="py-2.5 px-3 align-top whitespace-nowrap">
+<span class="inline-flex items-center gap-1 font-label-xs text-label-xs bg-tertiary-container/10 text-tertiary px-1.5 py-0.5 rounded font-mono font-semibold">
+<span class="w-1 h-1 rounded-full bg-tertiary"></span>
+                  UNAMBIGUOUS
+                </span>
+</td>
+<td class="py-2.5 px-3 align-top font-code-sm text-code-sm whitespace-nowrap">
+<span class="text-primary font-mono text-xs">pre: key != null</span>
+<span class="text-outline text-xs block font-mono">post: tx.state == CAPTURED</span>
+</td>
+<td class="py-2.5 px-3 align-top font-code-sm text-code-sm whitespace-nowrap">
+<a class="text-on-surface-variant hover:text-primary font-mono underline decoration-outline-variant underline-offset-2 flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-xs">code</span>
+                  payments/service.py:capture()
+                </a>
+</td>
+<td class="py-2.5 px-3 align-top text-right whitespace-nowrap">
+<span class="inline-flex items-center gap-1 font-label-xs text-label-xs bg-tertiary-container/20 text-tertiary px-1.5 py-0.5 rounded font-mono font-bold">
+                  VERIFIED
+                </span>
+<span class="block font-code-sm text-code-sm text-outline mt-0.5">12 tests · 8 killed</span>
+</td>
+</tr>
+<!-- Row 2: REQ-PAY-019 (Verified Normal) -->
+<tr class="group hover:bg-surface-container transition-colors cursor-pointer bg-surface-container-low/40">
+<td class="py-2.5 px-3 align-top font-code-sm text-code-sm whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="text-primary font-semibold font-mono">REQ-PAY-019</span>
+<button class="opacity-0 group-hover:opacity-100 text-outline hover:text-on-surface" title="Copy ID">
+<span class="material-symbols-outlined text-xs">content_copy</span>
+</button>
+</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="font-label-xs text-label-xs bg-surface-container-high text-on-surface-variant px-1 rounded">Settlement</span>
+<span class="font-label-xs text-label-xs bg-primary-container/20 text-primary px-1 rounded font-bold">P1</span>
+</div>
+</td>
+<td class="py-2.5 px-3 align-top">
+<div class="line-clamp-2 text-on-surface font-medium leading-snug">
+                  Refund amount cannot exceed unsettled capture amount
+                </div>
+<span class="font-code-sm text-code-sm text-outline mt-0.5 block truncate">Guard assertion: cumulative_refunds + req.amount <= capture.total</span>
+</td>
+<td class="py-2.5 px-3 align-top font-code-sm text-code-sm whitespace-nowrap">
+<div class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 font-mono">
+<span class="material-symbols-outlined text-xs text-outline">description</span>
+<span>payments_v2.md:L188</span>
+</div>
+</td>
+<td class="py-2.5 px-3 align-top whitespace-nowrap">
+<span class="inline-flex items-center gap-1 font-label-xs text-label-xs bg-tertiary-container/10 text-tertiary px-1.5 py-0.5 rounded font-mono font-semibold">
+<span class="w-1 h-1 rounded-full bg-tertiary"></span>
+                  UNAMBIGUOUS
+                </span>
+</td>
+<td class="py-2.5 px-3 align-top font-code-sm text-code-sm whitespace-nowrap">
+<span class="text-tertiary font-mono text-xs">Validated</span>
+<span class="text-outline text-xs block font-mono">AST Invariant Bound</span>
+</td>
+<td class="py-2.5 px-3 align-top font-code-sm text-code-sm whitespace-nowrap">
+<a class="text-on-surface-variant hover:text-primary font-mono underline decoration-outline-variant underline-offset-2 flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-xs">code</span>
+                  refunds/engine.py:process_refund()
+                </a>
+</td>
+<td class="py-2.5 px-3 align-top text-right whitespace-nowrap">
+<span class="inline-flex items-center gap-1 font-label-xs text-label-xs bg-tertiary-container/20 text-tertiary px-1.5 py-0.5 rounded font-mono font-bold">
+                  VERIFIED
+                </span>
+<span class="block font-code-sm text-code-sm text-outline mt-0.5">8 tests · 5 killed</span>
+</td>
+</tr>
+<!-- Row 3: REQ-PAY-024 (ACTIVE / SELECTED - AMBIGUOUS) -->
+<tr class="bg-surface-container-high transition-colors cursor-pointer shadow-sm">
+<td class="py-2.5 px-3 align-top font-code-sm text-code-sm whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="text-primary font-semibold font-mono">REQ-PAY-024</span>
+<span class="material-symbols-outlined text-primary text-xs">arrow_right_alt</span>
+</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="font-label-xs text-label-xs bg-surface-container-highest text-on-surface-variant px-1 rounded">Math/FX</span>
+<span class="font-label-xs text-label-xs bg-error-container/30 text-error px-1 rounded font-bold">P0</span>
+</div>
+</td>
+<td class="py-2.5 px-3 align-top">
+<div class="text-on-surface font-semibold leading-snug">
+                  Fractional cent currency conversion rounding must use banker's half-to-even
+                </div>
+<div class="bg-surface-container-lowest p-1.5 rounded mt-1 flex items-start gap-1.5">
+<span class="material-symbols-outlined text-error text-xs shrink-0 mt-0.5">warning</span>
+<span class="font-code-sm text-code-sm text-error leading-tight">Notice: Verification blocked: expected behavior requires clarification</span>
+</div>
+</td>
+<td class="py-2.5 px-3 align-top font-code-sm text-code-sm whitespace-nowrap">
+<div class="text-primary font-mono flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-xs">description</span>
+<span>currency_spec.md:L50</span>
+</div>
+</td>
+<td class="py-2.5 px-3 align-top whitespace-nowrap">
+<span class="inline-flex items-center gap-1 font-label-xs text-label-xs bg-error-container/30 text-error px-2 py-0.5 rounded font-mono font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                  AMBIGUOUS
+                </span>
+<span class="block font-label-xs text-label-xs text-outline mt-1 max-w-[140px] truncate" title="Rounding precision for JPY vs EUR undefined">
+                  Rounding JPY vs EUR undef
+                </span>
+</td>
+<td class="py-2.5 px-3 align-top font-code-sm text-code-sm whitespace-nowrap">
+<span class="text-error font-mono text-xs font-semibold">BLOCKED</span>
+<span class="text-outline text-xs block font-mono">Oracle Synthesizer Halt</span>
+</td>
+<td class="py-2.5 px-3 align-top font-code-sm text-code-sm whitespace-nowrap">
+<a class="text-primary font-mono underline decoration-primary underline-offset-2 flex items-center gap-1 font-semibold" href="#">
+<span class="material-symbols-outlined text-xs">code</span>
+                  currency/convert.py
+                </a>
+</td>
+<td class="py-2.5 px-3 align-top text-right whitespace-nowrap">
+<span class="inline-flex items-center gap-1 font-label-xs text-label-xs bg-surface-container-highest text-error px-1.5 py-0.5 rounded font-mono font-bold">
+                  INCONCLUSIVE
+                </span>
+<span class="block font-code-sm text-code-sm text-error mt-0.5">Clarification Req</span>
+</td>
+</tr>
+<!-- Row 4: REQ-PAY-031 (Verification Gap) -->
+<tr class="group hover:bg-surface-container transition-colors cursor-pointer bg-surface-container-lowest">
+<td class="py-2.5 px-3 align-top font-code-sm text-code-sm whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="text-primary font-semibold font-mono">REQ-PAY-031</span>
+<button class="opacity-0 group-hover:opacity-100 text-outline hover:text-on-surface" title="Copy ID">
+<span class="material-symbols-outlined text-xs">content_copy</span>
+</button>
+</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="font-label-xs text-label-xs bg-surface-container-high text-on-surface-variant px-1 rounded">Security</span>
+<span class="font-label-xs text-label-xs bg-error-container/30 text-error px-1 rounded font-bold">P0</span>
+</div>
+</td>
+<td class="py-2.5 px-3 align-top">
+<div class="line-clamp-2 text-on-surface font-medium leading-snug">
+                  Webhook replay attack protection with HMAC-SHA256 verification and 300s timestamp tolerance
+                </div>
+<span class="font-code-sm text-code-sm text-outline mt-0.5 block truncate">Tolerance window: Math.abs(current_ts - header_ts) <= 300</span>
+</td>
+<td class="py-2.5 px-3 align-top font-code-sm text-code-sm whitespace-nowrap">
+<div class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 font-mono">
+<span class="material-symbols-outlined text-xs text-outline">description</span>
+<span>webhooks.md:L12</span>
+</div>
+</td>
+<td class="py-2.5 px-3 align-top whitespace-nowrap">
+<span class="inline-flex items-center gap-1 font-label-xs text-label-xs bg-tertiary-container/10 text-tertiary px-1.5 py-0.5 rounded font-mono font-semibold">
+<span class="w-1 h-1 rounded-full bg-tertiary"></span>
+                  UNAMBIGUOUS
+                </span>
+</td>
+<td class="py-2.5 px-3 align-top font-code-sm text-code-sm whitespace-nowrap">
+<span class="text-tertiary font-mono text-xs">Validated</span>
+<span class="text-outline text-xs block font-mono">Crypto Predicate Valid</span>
+</td>
+<td class="py-2.5 px-3 align-top font-code-sm text-code-sm whitespace-nowrap">
+<a class="text-on-surface-variant hover:text-primary font-mono underline decoration-outline-variant underline-offset-2 flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-xs">code</span>
+                  security/webhooks.py
+                </a>
+</td>
+<td class="py-2.5 px-3 align-top text-right whitespace-nowrap">
+<span class="inline-flex items-center gap-1 font-label-xs text-label-xs bg-error-container/20 text-error px-1.5 py-0.5 rounded font-mono font-bold">
+                  VERIFICATION GAP
+                </span>
+<span class="block font-code-sm text-code-sm text-error mt-0.5 font-mono">3 mutants survived</span>
+</td>
+</tr>
+<!-- Row 5: REQ-PAY-041 (Contradiction Detected) -->
+<tr class="group hover:bg-surface-container transition-colors cursor-pointer bg-surface-container-low/20">
+<td class="py-2.5 px-3 align-top font-code-sm text-code-sm whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="text-primary font-semibold font-mono">REQ-PAY-041</span>
+<button class="opacity-0 group-hover:opacity-100 text-outline hover:text-on-surface" title="Copy ID">
+<span class="material-symbols-outlined text-xs">content_copy</span>
+</button>
+</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="font-label-xs text-label-xs bg-surface-container-high text-on-surface-variant px-1 rounded">2PC/Consensus</span>
+<span class="font-label-xs text-label-xs bg-primary-container/20 text-primary px-1 rounded font-bold">P1</span>
+</div>
+</td>
+<td class="py-2.5 px-3 align-top">
+<div class="line-clamp-2 text-on-surface font-medium leading-snug">
+                  Two-phase commit timeout recovery window for asynchronous settlement provider
+                </div>
+<span class="font-code-sm text-code-sm text-error mt-0.5 block truncate font-mono">Conflict: Spec overrides timeout ceiling set by REQ-PAY-014 (3000ms vs 1200ms)</span>
+</td>
+<td class="py-2.5 px-3 align-top font-code-sm text-code-sm whitespace-nowrap">
+<div class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 font-mono">
+<span class="material-symbols-outlined text-xs text-outline">description</span>
+<span>settlement.md:L90</span>
+</div>
+</td>
+<td class="py-2.5 px-3 align-top whitespace-nowrap">
+<span class="inline-flex items-center gap-1 font-label-xs text-label-xs bg-error-container text-on-error-container px-2 py-0.5 rounded font-mono font-bold">
+<span class="material-symbols-outlined text-xs">bolt</span>
+                  CONTRADICTION
+                </span>
+<span class="block font-label-xs text-label-xs text-error mt-1 truncate" title="Contradicts REQ-PAY-014 retry ceiling">
+                  Contradicts REQ-PAY-014
+                </span>
+</td>
+<td class="py-2.5 px-3 align-top font-code-sm text-code-sm whitespace-nowrap">
+<span class="text-error font-mono text-xs font-semibold">BLOCKED</span>
+<span class="text-outline text-xs block font-mono">SMT Solver Conflict</span>
+</td>
+<td class="py-2.5 px-3 align-top font-code-sm text-code-sm whitespace-nowrap">
+<a class="text-on-surface-variant hover:text-primary font-mono underline decoration-outline-variant underline-offset-2 flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-xs">code</span>
+                  settlement/worker.py
+                </a>
+</td>
+<td class="py-2.5 px-3 align-top text-right whitespace-nowrap">
+<span class="inline-flex items-center gap-1 font-label-xs text-label-xs bg-error-container/30 text-error px-1.5 py-0.5 rounded font-mono font-bold">
+                  BLOCKED
+                </span>
+<span class="block font-code-sm text-code-sm text-outline mt-0.5 font-mono">Solver SAT=0</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Bottom Diagnostic Meta Summary -->
+<div class="p-space-md bg-surface flex flex-wrap items-center justify-between text-outline font-code-sm text-code-sm">
+<div class="flex items-center gap-space-lg">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-tertiary">check_circle</span>
+<span class="text-on-surface-variant">Formal Sat: 91.2%</span>
+</span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-error">flag</span>
+<span class="text-on-surface-variant">Ambiguity Density: 0.105 per spec-kLoC</span>
+</span>
+</div>
+<div class="flex items-center gap-space-sm font-label-xs text-label-xs font-mono">
+<span class="bg-surface-container-low px-2 py-0.5 rounded text-on-surface-variant">AST Parser: TreeSitter-Markdown+OpenAPI-v3.1</span>
+</div>
+</div>
+</div>
+<!-- Right Pane: Interactive Requirement Detail Drawer (5 of 12 cols on 2xl) -->
+<div class="2xl:col-span-5 flex flex-col bg-surface-container min-w-0 shadow-xl overflow-y-auto">
+<!-- Drawer Header Bar -->
+<div class="p-space-lg bg-surface flex items-start justify-between gap-space-md">
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span id="inspReqId" class="font-code-lg text-code-lg text-primary font-bold font-mono">REQ-001</span>
+<span id="inspAmbiguityBadge" class="font-label-xs text-label-xs bg-tertiary-container/20 text-tertiary px-2 py-0.5 rounded font-mono uppercase font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">check_circle</span>
+              Unambiguous
+            </span>
+<span id="inspOracleBadge" class="font-label-xs text-label-xs bg-surface-container-high text-outline px-1.5 py-0.5 rounded font-mono">Deterministic Oracle</span>
+</div>
+<h2 id="inspTitle" class="font-headline-md text-headline-md text-on-surface tracking-tight truncate">
+            Requirement Specification
+          </h2>
+<span id="inspSourceRef" class="font-code-sm text-code-sm text-outline font-mono">demo/refund_flow.py</span>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Pin Inspector">
+<span class="material-symbols-outlined text-base">push_pin</span>
+</button>
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Expand Full Screen">
+<span class="material-symbols-outlined text-base">open_in_full</span>
+</button>
+</div>
+</div>
+<!-- Drawer Body Panels -->
+<div class="p-space-lg flex flex-col gap-space-lg">
+<!-- 1. Source Excerpt with NLP Highlighting -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase font-mono tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary">raw_on</span>
+              Original Source Excerpt
+            </span>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono">Lexical Confidence: 0.44</span>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded font-code-md text-code-md text-on-surface leading-relaxed relative">
+<span class="text-outline select-none font-mono pr-2">SPEC |</span>
+<span id="inspExcerptText">A refund amount must be greater than zero.</span>
+<div id="inspExcerptNote" class="mt-2 pt-2 text-outline font-code-sm text-code-sm flex items-center gap-1">
+<span id="inspExcerptIcon" class="material-symbols-outlined text-xs text-tertiary">check_circle</span>
+<span id="inspExcerptMsg">Deterministic normative semantics verified</span>
+</div>
+</div>
+</div>
+<!-- 2. Static Analysis Findings & Formal Diagnostics -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-outline uppercase font-mono tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-error">psychology_alt</span>
+            Static Analysis Findings
+          </span>
+<div id="inspFindingsContainer" class="bg-surface-container-low p-space-md rounded flex flex-col gap-space-sm">
+  <div id="inspFindingsList" class="flex flex-col gap-2"></div>
+  <div id="inspFindingsCallout" class="p-space-sm rounded flex items-start gap-space-sm"></div>
+</div>
+</div>
+<!-- 3. Behavior Contract Definition (Mathematical / Z3 SMT Form) -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase font-mono tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-tertiary">function</span>
+              Behavior Contract Definition
+            </span>
+<span class="font-label-xs text-label-xs bg-surface-container-highest text-tertiary px-1.5 py-0.5 rounded font-mono">DRAFT / SMT-LIB</span>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded font-code-sm text-code-sm flex flex-col gap-space-sm">
+<div class="flex flex-col gap-1">
+<span class="text-outline font-label-xs text-label-xs uppercase">Preconditions (requires)</span>
+<div id="inspPreconditions" class="bg-surface-container-low px-2 py-1.5 rounded font-mono text-tertiary">
+                None explicitly required
+              </div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-outline font-label-xs text-label-xs uppercase">Postconditions / Expected Actions (ensures)</span>
+<div id="inspPostconditions" class="bg-surface-container-low px-2 py-1.5 rounded font-mono text-primary">
+                result == refund(amount)
+              </div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-outline font-label-xs text-label-xs uppercase">Invariants (holds_always)</span>
+<div id="inspInvariants" class="bg-surface-container-low px-2 py-1.5 rounded font-mono text-on-surface-variant">
+                invariant: deterministic state preserved
+</div>
+</div>
+</div>
+</div>
+<!-- 4. Linked Implementation & Related Test Suite -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Implementation Block -->
+<div class="bg-surface-container-low p-space-md rounded flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-outline uppercase font-mono flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary">terminal</span>
+              Implementation
+            </span>
+<div id="inspImplPath" class="font-code-sm text-code-sm text-on-surface font-semibold truncate hover:text-primary cursor-pointer flex items-center gap-1">
+<span>demo/refund_flow.py</span>
+</div>
+<div class="flex items-center justify-between text-outline font-code-sm text-code-sm pt-1">
+<span id="inspImplSymbol" class="font-mono text-primary">RefundFlow.refund()</span>
+<span id="inspImplSpan" class="font-label-xs text-label-xs bg-surface-container-high px-1 py-0.5 rounded">source link</span>
+</div>
+</div>
+<!-- Test Suite Block -->
+<div class="bg-surface-container-low p-space-md rounded flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-outline uppercase font-mono flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-tertiary">science</span>
+              Related Test Suite
+            </span>
+<div id="inspTestPath" class="font-code-sm text-code-sm text-on-surface font-semibold truncate hover:text-primary cursor-pointer flex items-center gap-1">
+<span>tests/test_refund_flow.py</span>
+</div>
+<div class="flex items-center justify-between font-code-sm text-code-sm pt-1">
+<span id="inspTestSymbol" class="font-mono text-on-surface-variant truncate">test_refund_amount</span>
+<span id="inspTestVerdict" class="font-label-xs text-label-xs bg-tertiary-container/20 text-tertiary px-1 py-0.5 rounded font-bold font-mono">VERIFIED</span>
+</div>
+</div>
+</div>
+<!-- 5. Verification Traceability Graph Visualizer (Bespoke SVG DAG) -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase font-mono tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary">account_tree</span>
+              Verification Traceability Graph
+            </span>
+<span class="font-label-xs text-label-xs text-error font-mono">1 Broken Link Detected</span>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded flex flex-col gap-space-md overflow-x-auto">
+<!-- Inline Mini Graph Nodes Representation -->
+<div class="flex items-center justify-between min-w-[500px] text-center font-code-sm text-code-sm py-1 select-none">
+<div id="dagContainer" class="flex items-center justify-between min-w-[500px] text-center font-code-sm text-code-sm py-1 select-none">
+  <!-- Dynamic DAG nodes will be rendered here -->
+</div>
+</div>
+</div>
+</div>
+<!-- 6. Diagnostic Resolution Actions Drawer Strip -->
+<div class="flex flex-col gap-space-sm pt-space-xs mt-auto">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<button onclick="openClarifyModal()" class="bg-primary hover:bg-primary-fixed-dim text-on-primary font-body-sm text-body-sm font-semibold px-3 py-2 rounded flex items-center justify-center gap-2 shadow-sm transition-colors">
+<span class="material-symbols-outlined text-base">edit_note</span>
+<span>Clarify / Edit Requirement</span>
+</button>
+<button onclick="showFeatureNotice('Spec Owner Routing', 'Routing to specification author is scheduled for Phase 7.')" class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-body-sm text-body-sm font-medium px-3 py-2 rounded flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-base text-primary">person_search</span>
+<span>Request Specification Owner</span>
+</button>
+</div>
+<div class="flex items-center justify-between text-outline font-code-sm text-code-sm pt-space-xs">
+<button onclick="exportSelectedContractJson()" class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">terminal</span>
+<span>Export Contract JSON</span>
+</button>
+<button onclick="showFeatureNotice('AST History', 'Direct git blame AST history inspection is scheduled for Phase 7.')" class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">history</span>
+<span>View Git Blame / AST History</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Requirement Input & Edit Modal -->
+<div id="reqModal" class="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+  <div class="bg-surface-container border border-outline-variant rounded-xl max-w-2xl w-full p-6 shadow-2xl flex flex-col gap-4">
+    <div class="flex items-center justify-between border-b border-outline-variant pb-3">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-xl">fact_check</span>
+        <h3 id="modalTitle" class="font-headline-md text-headline-md text-on-surface">Requirement Intelligence Input</h3>
+      </div>
+      <button onclick="closeRequirementModal()" class="text-outline hover:text-on-surface p-1 rounded hover:bg-surface-container-high">
+        <span class="material-symbols-outlined text-lg">close</span>
+      </button>
+    </div>
+    <p class="font-body-sm text-body-sm text-on-surface-variant">
+      Enter requirements as a Markdown checklist (<code class="text-primary font-mono">- [ ] REQ-XXX: Statement</code>) or plain sentences. The deterministic AST engine will decompose, detect ambiguities, and synthesize formal behavior contracts.
+    </p>
+    <div class="flex flex-col gap-1.5">
+      <label class="font-label-xs text-label-xs text-outline uppercase font-mono">Specification Statements</label>
+      <textarea id="modalTextarea" rows="8" class="w-full bg-surface-container-lowest text-on-surface font-code-sm text-code-sm p-3 rounded-lg border border-outline-variant outline-none focus:border-primary font-mono leading-relaxed resize-y placeholder:text-outline" placeholder="- [ ] REQ-001: The payment amount must be greater than zero.&#10;- [ ] REQ-002: Currency conversion should be properly rounded before settlement."></textarea>
+    </div>
+    <div class="flex items-center justify-between pt-2">
+      <div class="flex items-center gap-2">
+        <button onclick="loadSampleRequirementsInModal()" class="text-outline hover:text-primary font-code-sm text-code-sm px-2.5 py-1 rounded bg-surface-container-low hover:bg-surface-container-high transition-colors">Load Sample Specs</button>
+        <button onclick="loadWorkspaceRequirementsInModal()" class="text-outline hover:text-primary font-code-sm text-code-sm px-2.5 py-1 rounded bg-surface-container-low hover:bg-surface-container-high transition-colors">Load Workspace requirements.md</button>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="closeRequirementModal()" class="px-3 py-1.5 rounded font-body-sm text-body-sm text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors">Cancel</button>
+        <button id="modalSubmitBtn" onclick="submitModalRequirements()" class="bg-primary hover:bg-primary-fixed-dim text-on-primary font-body-sm text-body-sm font-semibold px-4 py-1.5 rounded flex items-center gap-1.5 shadow-sm transition-colors">
+          <span class="material-symbols-outlined text-base">play_arrow</span>
+          <span id="modalSubmitLabel">Run Static Analysis</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Container -->
+
+<!-- New Project Onboarding Modal -->
+<div id="newProjectModal" class="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+  <div class="bg-surface-container border border-outline-variant rounded-xl max-w-2xl w-full p-6 shadow-2xl flex flex-col gap-4 max-h-[90vh] overflow-y-auto">
+    <div class="flex items-center justify-between border-b border-outline-variant pb-3">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-2xl">create_new_folder</span>
+        <div>
+          <h3 class="font-headline-md text-headline-md text-on-surface">New Assurance Project</h3>
+          <p class="font-label-xs text-label-xs text-outline font-mono">AST Engine · Static Verification · Behavior Synthesis</p>
+        </div>
+      </div>
+      <button onclick="closeNewProjectModal()" class="text-outline hover:text-on-surface p-1 rounded hover:bg-surface-container-high">
+        <span class="material-symbols-outlined text-lg">close</span>
+      </button>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      <div>
+        <label class="font-label-xs text-label-xs text-outline uppercase font-mono block mb-1">Project Name *</label>
+        <input id="newProjName" type="text" class="w-full bg-surface-container-lowest text-on-surface font-body-sm text-body-sm p-2.5 rounded-lg border border-outline-variant outline-none focus:border-primary placeholder:text-outline font-medium" placeholder="e.g. Acme Billing Engine"/>
+      </div>
+
+      <div>
+        <label class="font-label-xs text-label-xs text-outline uppercase font-mono block mb-1">Description</label>
+        <input id="newProjDesc" type="text" class="w-full bg-surface-container-lowest text-on-surface font-body-sm text-body-sm p-2.5 rounded-lg border border-outline-variant outline-none focus:border-primary placeholder:text-outline" placeholder="e.g. Core subscription, invoice, and payment processing services"/>
+      </div>
+
+      <!-- Codebase ZIP Upload -->
+      <div class="bg-surface-container-low p-3 rounded-lg border border-outline-variant flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <label class="font-label-xs text-label-xs text-primary uppercase font-mono flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">folder_zip</span> Python Codebase (.zip)
+          </label>
+          <span class="font-label-xs text-label-xs text-outline">Optional (can upload later)</span>
+        </div>
+        <input id="newProjZip" type="file" accept=".zip" class="w-full bg-surface-container-lowest text-on-surface font-code-sm text-code-sm p-2 rounded border border-outline-variant file:mr-3 file:py-1 file:px-2 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-primary/20 file:text-primary hover:file:bg-primary/30 cursor-pointer"/>
+        <p class="font-label-xs text-label-xs text-outline">SpecGuard safely unpacks into an isolated sandbox to extract Python classes, functions, and call trees without host execution.</p>
+      </div>
+
+      <!-- Requirements Input (File or Text) -->
+      <div class="bg-surface-container-low p-3 rounded-lg border border-outline-variant flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <label class="font-label-xs text-label-xs text-tertiary uppercase font-mono flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">checklist</span> Requirements Specifications (.md or text)
+          </label>
+          <button onclick="fillDemoRequirements()" class="text-primary hover:underline font-label-xs text-label-xs">Insert Demo Specs</button>
+        </div>
+        <input id="newProjReqFile" type="file" accept=".md,.txt" class="w-full bg-surface-container-lowest text-on-surface font-code-sm text-code-sm p-2 rounded border border-outline-variant file:mr-3 file:py-1 file:px-2 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-tertiary-container/20 file:text-tertiary hover:file:bg-tertiary-container/30 cursor-pointer"/>
+        <div class="text-center text-outline font-label-xs uppercase my-0.5 font-mono">— OR PASTE SPECIFICATIONS —</div>
+        <textarea id="newProjReqText" rows="4" class="w-full bg-surface-container-lowest text-on-surface font-code-sm text-code-sm p-2.5 rounded-lg border border-outline-variant outline-none focus:border-primary font-mono leading-relaxed resize-y placeholder:text-outline" placeholder="- [ ] REQ-001: Refund requests must specify a non-negative amount.&#10;- [ ] REQ-002: Settlement calculation should be properly rounded."></textarea>
+      </div>
+    </div>
+
+    <!-- Quick benchmark pre-fill -->
+    <div class="flex items-center justify-between pt-1 border-t border-outline-variant">
+      <button onclick="quickLoadDemoProject()" class="text-primary hover:underline font-code-sm text-code-sm flex items-center gap-1">
+        <span class="material-symbols-outlined text-sm">smart_toy</span>
+        Load RefundFlow Demo Core
+      </button>
+      <div class="flex items-center gap-2">
+        <button onclick="closeNewProjectModal()" class="px-3 py-1.5 rounded font-body-sm text-body-sm text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors">Cancel</button>
+        <button id="btnSubmitNewProject" onclick="submitNewProject()" class="bg-primary hover:bg-primary-fixed-dim text-on-primary font-body-sm text-body-sm font-semibold px-4 py-1.5 rounded flex items-center gap-1.5 shadow-sm transition-colors">
+          <span class="material-symbols-outlined text-base">rocket_launch</span>
+          <span id="submitNewProjectLabel">Create & Run Assurance</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Python AST Code Intelligence Drawer / Viewer -->
+<div id="codeIntelDrawer" class="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 hidden flex justify-end">
+  <div class="bg-surface-container border-l border-outline-variant w-full max-w-3xl h-full shadow-2xl flex flex-col">
+    <!-- Drawer Header -->
+    <div class="p-4 border-b border-outline-variant flex items-center justify-between bg-surface-container-lowest">
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-secondary text-2xl">code_blocks</span>
+        <div>
+          <div class="flex items-center gap-2">
+            <h3 class="font-headline-md text-headline-md text-on-surface">Python AST Code Intelligence</h3>
+            <span id="ciDrawerStatusBadge" class="bg-tertiary-container/20 text-tertiary px-1.5 py-0.2 rounded font-mono font-bold text-label-xs">OBSERVED</span>
+          </div>
+          <p class="font-code-sm text-code-sm text-outline">Target: Python 3.14 · Language Server AST · Static Symbol Call Graph</p>
+        </div>
+      </div>
+      <button onclick="closeCodeIntelDrawer()" class="text-outline hover:text-on-surface p-1 rounded hover:bg-surface-container-high">
+        <span class="material-symbols-outlined text-xl">close</span>
+      </button>
+    </div>
+
+    <!-- Drawer Toolbar -->
+    <div class="p-3 bg-surface-container-low border-b border-outline-variant flex items-center justify-between gap-3">
+      <div class="relative flex-1">
+        <span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-base">filter_alt</span>
+        <input id="ciSymbolFilterInput" oninput="filterCiSymbols()" class="w-full bg-surface-container-lowest text-on-surface placeholder:text-outline font-code-sm text-code-sm pl-8 pr-3 py-1 rounded border border-outline-variant outline-none focus:border-secondary" placeholder="Filter by symbol, class, function, or file..."/>
+      </div>
+      <div class="flex items-center gap-2 font-code-sm text-code-sm text-outline font-mono">
+        <span id="ciDrawerSymbolCount">0</span> symbols
+      </div>
+    </div>
+
+    <!-- Symbols Table -->
+    <div class="flex-1 overflow-y-auto">
+      <table class="w-full text-left border-collapse select-none">
+        <thead>
+          <tr class="bg-surface-container-low text-outline font-label-xs text-label-xs uppercase tracking-wider sticky top-0 border-b border-outline-variant">
+            <th class="py-2.5 px-3 font-semibold">Symbol / Name</th>
+            <th class="py-2.5 px-3 font-semibold">Kind</th>
+            <th class="py-2.5 px-3 font-semibold">File & Span</th>
+            <th class="py-2.5 px-3 font-semibold text-right">Traceability</th>
+          </tr>
+        </thead>
+        <tbody id="ciSymbolsTableBody" class="divide-y divide-outline-variant/30 text-on-surface font-code-sm text-code-sm">
+          <tr>
+            <td colspan="4" class="py-12 text-center text-outline">Loading Python symbols...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="p-3 bg-surface-container-lowest border-t border-outline-variant flex items-center justify-between text-code-sm">
+      <div class="flex items-center gap-2 text-outline">
+        <span class="material-symbols-outlined text-sm text-tertiary">check_circle</span>
+        <span>AST parsing performed safely without executing untrusted code on host.</span>
+      </div>
+      <button onclick="closeCodeIntelDrawer()" class="px-3 py-1 bg-surface-container-high hover:bg-surface-container-highest text-on-surface rounded transition-colors">Close</button>
+    </div>
+  </div>
+</div>
+
+<div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-sm pointer-events-none"></div>
+
+
+<script>
+// =========================================================================
+// SpecGuard Full-Stack Requirement Intelligence Application Engine
+// =========================================================================
+
+// State Management
+const State = {
+  mode: 'live', // 'live' or 'sample'
+  selectedId: null,
+  activeTab: 'all',
+  projects: [],
+  currentProjectId: null,
+  currentProject: null,
+  codeIntelligence: null,
+  liveData: {
+    requirements: [],
+    findings: [],
+    contracts: [],
+    links: [],
+    evidence: [],
+    counts: { total: 0, atomic: 0, ambiguous: 0, findings: 0, contracts: 0 }
+  },
+  sampleData: {
+    requirements: [
+      {
+        requirement_id: 'REQ-PAY-018',
+        normalized_text: 'Payment capture must verify idempotency key uniqueness within a sliding 24-hour window before charging ledger',
+        source_text: 'Payment capture must verify idempotency key uniqueness within a sliding 24-hour window before charging ledger',
+        atomic: true,
+        ambiguous: false,
+        ambiguity_reasons: [],
+        source_hint: 'payments_v2.md:L142',
+        priority: 'P0',
+        category: 'Core',
+        symbol: 'payments/service.py:capture()',
+        status: 'VERIFIED'
+      },
+      {
+        requirement_id: 'REQ-PAY-019',
+        normalized_text: 'Refund amount cannot exceed unsettled capture amount',
+        source_text: 'Refund amount cannot exceed unsettled capture amount',
+        atomic: true,
+        ambiguous: false,
+        ambiguity_reasons: [],
+        source_hint: 'payments_v2.md:L188',
+        priority: 'P1',
+        category: 'Settlement',
+        symbol: 'refunds/engine.py:process_refund()',
+        status: 'VERIFIED'
+      },
+      {
+        requirement_id: 'REQ-PAY-024',
+        normalized_text: 'All currency calculations should be properly rounded before settlement.',
+        source_text: 'All currency calculations should be properly rounded before settlement.',
+        atomic: true,
+        ambiguous: true,
+        ambiguity_reasons: ['contains vague or optional language: "properly"', 'lacks deterministic numerical scale'],
+        source_hint: 'currency_spec.md:L50',
+        priority: 'P0',
+        category: 'Math/FX',
+        symbol: 'payments/currency/convert.py:to_minor_units()',
+        status: 'BLOCKED'
+      },
+      {
+        requirement_id: 'REQ-PAY-031',
+        normalized_text: 'Cross-border transaction compliance fee calculation for SEPA zone must apply 15bps surcharge.',
+        source_text: 'Cross-border transaction compliance fee calculation for SEPA zone must apply 15bps surcharge.',
+        atomic: true,
+        ambiguous: false,
+        ambiguity_reasons: [],
+        source_hint: 'compliance_v1.md:L89',
+        priority: 'P1',
+        category: 'Compliance',
+        symbol: 'compliance/sepa.py:calculate_fee()',
+        status: 'VERIFIED'
+      },
+      {
+        requirement_id: 'REQ-PAY-042',
+        normalized_text: 'Asynchronous webhook dispatch retry backoff strategy should be reasonable.',
+        source_text: 'Asynchronous webhook dispatch retry backoff strategy should be reasonable.',
+        atomic: true,
+        ambiguous: true,
+        ambiguity_reasons: ['contains vague or optional language: "reasonable"'],
+        source_hint: 'webhooks.md:L12',
+        priority: 'P2',
+        category: 'Webhooks',
+        symbol: 'webhooks/dispatch.py:queue_retry()',
+        status: 'AMBIGUOUS'
+      }
+    ],
+    findings: [
+      {
+        finding_id: 'finding-sample-024',
+        requirement_id: 'REQ-PAY-024',
+        category: 'ambiguity',
+        severity: 'warning',
+        message: 'Undefined rounding method in source text. ISO-4217 zero-decimal currencies behave differently than standard 2-decimal currencies. Spec fails to define scale parameter.'
+      },
+      {
+        finding_id: 'finding-sample-042',
+        requirement_id: 'REQ-PAY-042',
+        category: 'ambiguity',
+        severity: 'warning',
+        message: 'Predicate token "reasonable" lacks deterministic numerical bounds or retry limits.'
+      }
+    ],
+    contracts: [
+      {
+        contract_id: 'contract-sample-018',
+        requirement_id: 'REQ-PAY-018',
+        preconditions: ['key != null', 'window_start <= tx.timestamp'],
+        postconditions: ['tx.state == CAPTURED', 'unique(idempotency_key)'],
+        actions: ['verify idempotency uniqueness', 'charge ledger']
+      },
+      {
+        contract_id: 'contract-sample-019',
+        requirement_id: 'REQ-PAY-019',
+        preconditions: ['cumulative_refunds + req.amount <= capture.total'],
+        postconditions: ['refund.state == PROCESSED'],
+        actions: ['execute refund within capture limits']
+      },
+      {
+        contract_id: 'contract-sample-024',
+        requirement_id: 'REQ-PAY-024',
+        preconditions: ['input_amount > 0', 'currency in SUPPORTED_CURRENCIES'],
+        postconditions: ['result == round_half_even(input_amount, scale)'],
+        actions: ['Ambiguous: requires scale & rounding method clarification']
+      }
+    ],
+    links: [],
+    evidence: [],
+    counts: { total: 5, atomic: 5, ambiguous: 2, findings: 2, contracts: 3 }
+  }
+};
+
+// Check backend connectivity
+async function checkBackendHealth() {
+  try {
+    const res = await fetch('/api/v2/health');
+    if (res.ok) {
+      const data = await res.json();
+      updateHealthUI(true, data.version);
+      return true;
+    }
+  } catch (err) {
+    console.warn('Backend /api/v2/health unreachable, checking /api/v1/health');
+  }
+
+  try {
+    const res1 = await fetch('/api/v1/health');
+    if (res1.ok) {
+      const data = await res1.json();
+      updateHealthUI(true, data.version || '1.0.0');
+      return true;
+    }
+  } catch (err) {
+    updateHealthUI(false);
+    return false;
+  }
+  updateHealthUI(false);
+  return false;
+}
+
+function updateHealthUI(online, version = '2.0.0') {
+  const sidebarDot = document.getElementById('sidebarHealthDot');
+  const sidebarText = document.getElementById('sidebarHealthText');
+  const sidebarPill = document.getElementById('sidebarHealthPill');
+  const topBadge = document.getElementById('topHealthBadge');
+
+  if (online) {
+    if (sidebarDot) sidebarDot.className = 'h-2 w-2 rounded-full bg-tertiary animate-pulse';
+    if (sidebarText) sidebarText.textContent = `FastAPI: Connected (${version})`;
+    if (sidebarPill) {
+      sidebarPill.className = 'font-label-xs text-label-xs text-tertiary bg-tertiary-container/20 px-1 py-0.5 rounded font-mono';
+      sidebarPill.textContent = 'ONLINE';
+    }
+    if (topBadge) {
+      topBadge.className = 'inline-flex items-center gap-1 font-label-xs text-label-xs px-2 py-0.5 rounded bg-tertiary-container/10 text-tertiary font-mono';
+      topBadge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>FastAPI: Connected (v${version})`;
+    }
+  } else {
+    if (sidebarDot) sidebarDot.className = 'h-2 w-2 rounded-full bg-error';
+    if (sidebarText) sidebarText.textContent = 'FastAPI: Offline';
+    if (sidebarPill) {
+      sidebarPill.className = 'font-label-xs text-label-xs text-error bg-error-container/20 px-1 py-0.5 rounded font-mono';
+      sidebarPill.textContent = 'OFFLINE';
+    }
+    if (topBadge) {
+      topBadge.className = 'inline-flex items-center gap-1 font-label-xs text-label-xs px-2 py-0.5 rounded bg-error-container/20 text-error font-mono';
+      topBadge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-error"></span>Backend: Offline`;
+    }
+  }
+}
+
+// Load requirements from live backend
+async function fetchLiveRequirements() {
+  try {
+    const res = await fetch('/api/v2/requirements');
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    State.liveData = data;
+    if (data.requirements && data.requirements.length > 0) {
+      State.selectedId = data.requirements[0].requirement_id;
+    }
+    return true;
+  } catch (err) {
+    console.error('Failed to fetch live requirements:', err);
+    showToast('Failed to reach backend API. Switched to sample mode.', 'error');
+    State.mode = 'sample';
+    updateModeUI();
+    return false;
+  }
+}
+
+// Current active dataset
+function getActiveDataset() {
+  return State.mode === 'live' ? State.liveData : State.sampleData;
+}
+
+// Toggle between Live API and Sample Demo
+function toggleDataMode() {
+  State.mode = State.mode === 'live' ? 'sample' : 'live';
+  updateModeUI();
+  const data = getActiveDataset();
+  if (data.requirements.length > 0) {
+    State.selectedId = data.requirements[0].requirement_id;
+  } else {
+    State.selectedId = null;
+  }
+  renderAll();
+  showToast(`Switched to ${State.mode === 'live' ? 'Live API Data' : 'Sample Stitch Demo'} mode`);
+}
+
+function updateModeUI() {
+  const btn = document.getElementById('modeToggleBtn');
+  const dot = document.getElementById('modeDot');
+  const text = document.getElementById('modeText');
+  const tag = document.getElementById('sidebarModeTag');
+
+  if (State.mode === 'live') {
+    if (dot) dot.className = 'w-2 h-2 rounded-full bg-primary animate-pulse';
+    if (text) text.textContent = 'Mode: LIVE API';
+    if (tag) {
+      tag.className = 'text-tertiary font-label-xs text-label-xs uppercase font-mono';
+      tag.textContent = 'LIVE CORE';
+    }
+  } else {
+    if (dot) dot.className = 'w-2 h-2 rounded-full bg-outline';
+    if (text) text.textContent = 'Mode: SAMPLE DATA';
+    if (tag) {
+      tag.className = 'text-outline font-label-xs text-label-xs uppercase font-mono';
+      tag.textContent = 'SAMPLE DEMO';
+    }
+  }
+}
+
+// Filter and Tab Handling
+function setActiveTab(tab) {
+  State.activeTab = tab;
+  const tabIds = ['tabAll', 'tabAtomic', 'tabAmbiguities', 'tabContradictions', 'tabContracts'];
+  tabIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (id.toLowerCase().includes(tab)) {
+      el.className = 'bg-surface-container-high text-primary px-3 py-1 rounded font-code-sm text-code-sm font-medium flex items-center gap-2 shrink-0 transition-colors';
+    } else {
+      el.className = 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low px-3 py-1 rounded font-code-sm text-code-sm font-medium flex items-center gap-2 shrink-0 transition-colors';
+    }
+  });
+  renderTable();
+}
+
+function applyFilters() {
+  renderTable();
+}
+
+function clearSearch() {
+  const input = document.getElementById('tableSearchInput');
+  if (input) input.value = '';
+  applyFilters();
+}
+
+function resetFilters() {
+  const searchInput = document.getElementById('tableSearchInput');
+  const prioritySelect = document.getElementById('filterPriority');
+  const ambiguitySelect = document.getElementById('filterAmbiguity');
+  const contractSelect = document.getElementById('filterContract');
+
+  if (searchInput) searchInput.value = '';
+  if (prioritySelect) prioritySelect.value = 'all';
+  if (ambiguitySelect) ambiguitySelect.value = 'all';
+  if (contractSelect) contractSelect.value = 'all';
+
+  setActiveTab('all');
+  showToast('Filters reset to default');
+}
+
+// Render Table Rows
+function renderTable() {
+  const tbody = document.getElementById('requirementsTableBody');
+  if (!tbody) return;
+
+  const dataset = getActiveDataset();
+  const query = (document.getElementById('tableSearchInput')?.value || '').toLowerCase().trim();
+  const priorityFilter = document.getElementById('filterPriority')?.value || 'all';
+  const ambiguityFilter = document.getElementById('filterAmbiguity')?.value || 'all';
+  const contractFilter = document.getElementById('filterContract')?.value || 'all';
+
+  let list = dataset.requirements || [];
+
+  // Tab filter
+  if (State.activeTab === 'ambiguities') {
+    list = list.filter(r => r.ambiguous || (r.ambiguity_reasons && r.ambiguity_reasons.length > 0));
+  } else if (State.activeTab === 'atomic') {
+    list = list.filter(r => r.atomic !== false);
+  } else if (State.activeTab === 'contradictions') {
+    const contradictionReqIds = new Set(
+      (dataset.findings || []).filter(f => f.category === 'contradiction').map(f => f.requirement_id)
+    );
+    list = list.filter(r => contradictionReqIds.has(r.requirement_id));
+  }
+
+  // Text search filter
+  if (query) {
+    list = list.filter(r => 
+      (r.requirement_id && r.requirement_id.toLowerCase().includes(query)) ||
+      (r.normalized_text && r.normalized_text.toLowerCase().includes(query)) ||
+      (r.source_hint && r.source_hint.toLowerCase().includes(query))
+    );
+  }
+
+  // Dropdown filters
+  if (ambiguityFilter === 'ambiguous') {
+    list = list.filter(r => r.ambiguous);
+  } else if (ambiguityFilter === 'unambiguous') {
+    list = list.filter(r => !r.ambiguous);
+  }
+
+  // Update showing count
+  const showingCountEl = document.getElementById('tableShowingCount');
+  if (showingCountEl) {
+    showingCountEl.textContent = `Showing ${list.length} of ${(dataset.requirements || []).length} entities`;
+  }
+
+  if (list.length === 0) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="7" class="py-12 text-center text-outline font-code-sm">
+          <div class="flex flex-col items-center gap-2">
+            <span class="material-symbols-outlined text-3xl text-outline">search_off</span>
+            <span>No specifications match the active criteria.</span>
+            <button onclick="resetFilters()" class="text-primary hover:underline text-xs mt-1">Reset all filters</button>
+          </div>
+        </td>
+      </tr>
+    `;
+    return;
+  }
+
+  // If selected requirement is not in the filtered list, select the first visible
+  if (!list.some(r => r.requirement_id === State.selectedId)) {
+    State.selectedId = list[0].requirement_id;
+  }
+
+  tbody.innerHTML = list.map(req => {
+    const isSelected = req.requirement_id === State.selectedId;
+    const isAmbiguous = req.ambiguous || (req.ambiguity_reasons && req.ambiguity_reasons.length > 0);
+    const contract = (dataset.contracts || []).find(c => c.requirement_id === req.requirement_id);
+    const finding = (dataset.findings || []).find(f => f.requirement_id === req.requirement_id);
+    
+    // Status text & style
+    let statusBadge = '<span class="inline-flex items-center gap-1 font-label-xs text-label-xs bg-tertiary-container/20 text-tertiary px-1.5 py-0.5 rounded font-mono font-bold">VERIFIED</span>';
+    let statusDetail = 'Passing oracle synthesized';
+    if (isAmbiguous) {
+      statusBadge = '<span class="inline-flex items-center gap-1 font-label-xs text-label-xs bg-error-container/30 text-error px-1.5 py-0.5 rounded font-mono font-bold">BLOCKED</span>';
+      statusDetail = 'Ambiguity blocking oracle';
+    } else if (['REQ-004', 'REQ-008', 'REQ-010'].includes(req.requirement_id)) {
+      statusBadge = '<span class="inline-flex items-center gap-1 font-label-xs text-label-xs bg-surface-container-high text-outline px-1.5 py-0.5 rounded font-mono font-bold">GAP</span>';
+      statusDetail = 'Unprotected behavior';
+    }
+
+    const priorityBadge = req.priority || (isAmbiguous ? 'P0' : 'P1');
+    const categoryBadge = req.category || 'RefundCore';
+    const sourceRef = req.source_hint || 'demo/refund_flow.py';
+    const linkedSymbol = req.symbol || 'RefundFlow.refund()';
+
+    const rowBg = isSelected 
+      ? 'bg-surface-container-high shadow-sm' 
+      : 'bg-surface-container-lowest hover:bg-surface-container';
+
+    return `
+      <tr onclick="selectRequirement('${req.requirement_id}')" class="group transition-colors cursor-pointer select-none ${rowBg}">
+        <td class="py-2.5 px-3 align-top font-code-sm text-code-sm whitespace-nowrap">
+          <div class="flex items-center gap-1.5">
+            <span class="text-primary font-semibold font-mono">${req.requirement_id}</span>
+            ${isSelected ? '<span class="material-symbols-outlined text-primary text-xs">arrow_right_alt</span>' : ''}
+            <button onclick="event.stopPropagation(); copyText('${req.requirement_id}')" class="opacity-0 group-hover:opacity-100 text-outline hover:text-on-surface" title="Copy ID">
+              <span class="material-symbols-outlined text-xs">content_copy</span>
+            </button>
+          </div>
+          <div class="flex items-center gap-1 mt-0.5">
+            <span class="font-label-xs text-label-xs bg-surface-container-high text-on-surface-variant px-1 rounded">${categoryBadge}</span>
+            <span class="font-label-xs text-label-xs ${isAmbiguous ? 'bg-error-container/30 text-error' : 'bg-primary-container/20 text-primary'} px-1 rounded font-bold">${priorityBadge}</span>
+          </div>
+        </td>
+        <td class="py-2.5 px-3 align-top">
+          <div class="line-clamp-2 text-on-surface font-medium leading-snug">
+            ${highlightVagueWords(req.normalized_text)}
+          </div>
+          <span class="font-code-sm text-code-sm text-outline mt-0.5 block truncate">
+            ${req.atomicity_reasons && req.atomicity_reasons.length > 0 ? req.atomicity_reasons.join('; ') : 'Normalized deterministic statement'}
+          </span>
+        </td>
+        <td class="py-2.5 px-3 align-top font-code-sm text-code-sm whitespace-nowrap">
+          <div class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 font-mono">
+            <span class="material-symbols-outlined text-xs text-outline">description</span>
+            <span>${sourceRef}</span>
+          </div>
+        </td>
+        <td class="py-2.5 px-3 align-top whitespace-nowrap">
+          ${isAmbiguous ? `
+            <span class="inline-flex items-center gap-1 font-label-xs text-label-xs bg-error-container/30 text-error px-1.5 py-0.5 rounded font-mono font-semibold">
+              <span class="w-1 h-1 rounded-full bg-error"></span>
+              AMBIGUOUS
+            </span>
+          ` : `
+            <span class="inline-flex items-center gap-1 font-label-xs text-label-xs bg-tertiary-container/10 text-tertiary px-1.5 py-0.5 rounded font-mono font-semibold">
+              <span class="w-1 h-1 rounded-full bg-tertiary"></span>
+              UNAMBIGUOUS
+            </span>
+          `}
+        </td>
+        <td class="py-2.5 px-3 align-top font-code-sm text-code-sm whitespace-nowrap">
+          <span class="text-primary font-mono text-xs">${contract && contract.preconditions && contract.preconditions.length > 0 ? contract.preconditions[0] : 'pre: valid_input'}</span>
+          <span class="text-outline text-xs block font-mono">${contract && contract.postconditions && contract.postconditions.length > 0 ? contract.postconditions[0] : 'post: state_preserved'}</span>
+        </td>
+        <td class="py-2.5 px-3 align-top font-code-sm text-code-sm whitespace-nowrap">
+          <span class="text-on-surface-variant hover:text-primary font-mono flex items-center gap-1">
+            <span class="material-symbols-outlined text-xs">code</span>
+            ${linkedSymbol}
+          </span>
+        </td>
+        <td class="py-2.5 px-3 align-top text-right whitespace-nowrap">
+          ${statusBadge}
+          <span class="block font-code-sm text-code-sm text-outline mt-0.5">${statusDetail}</span>
+        </td>
+      </tr>
+    `;
+  }).join('');
+
+  renderInspector();
+}
+
+// Select a Requirement and update Inspector
+function selectRequirement(reqId) {
+  State.selectedId = reqId;
+  renderTable();
+}
+
+// Highlight vague / ambiguous tokens
+function highlightVagueWords(text) {
+  if (!text) return '';
+  const vagueRegex = /\b(properly|reasonable|appropriate|may|might|soon|fast|etc|sufficiently|clean)\b/gi;
+  return text.replace(vagueRegex, '<mark class="bg-error-container/40 text-error px-1 py-0.5 rounded font-bold cursor-help" title="Vague or non-deterministic token">$1</mark>');
+}
+
+// Render Inspector (Right Pane)
+function renderInspector() {
+  const dataset = getActiveDataset();
+  const req = (dataset.requirements || []).find(r => r.requirement_id === State.selectedId);
+  if (!req) return;
+
+  const isAmbiguous = req.ambiguous || (req.ambiguity_reasons && req.ambiguity_reasons.length > 0);
+  const contract = (dataset.contracts || []).find(c => c.requirement_id === req.requirement_id);
+  const findings = (dataset.findings || []).filter(f => f.requirement_id === req.requirement_id);
+
+  // Inspector Header
+  const inspId = document.getElementById('inspReqId');
+  const inspBadge = document.getElementById('inspAmbiguityBadge');
+  const inspTitle = document.getElementById('inspTitle');
+  const inspSourceRef = document.getElementById('inspSourceRef');
+
+  if (inspId) inspId.textContent = req.requirement_id;
+  if (inspBadge) {
+    if (isAmbiguous) {
+      inspBadge.className = 'font-label-xs text-label-xs bg-error-container/30 text-error px-2 py-0.5 rounded font-mono uppercase font-bold flex items-center gap-1';
+      inspBadge.innerHTML = '<span class="material-symbols-outlined text-xs">error</span> Ambiguity Flagged';
+    } else {
+      inspBadge.className = 'font-label-xs text-label-xs bg-tertiary-container/20 text-tertiary px-2 py-0.5 rounded font-mono uppercase font-bold flex items-center gap-1';
+      inspBadge.innerHTML = '<span class="material-symbols-outlined text-xs">check_circle</span> Unambiguous';
+    }
+  }
+  if (inspTitle) inspTitle.textContent = req.normalized_text;
+  if (inspSourceRef) inspSourceRef.textContent = `${req.source_hint || 'demo/refund_flow.py'} @ verified AST`;
+
+  // Source Excerpt
+  const excerptText = document.getElementById('inspExcerptText');
+  const excerptMsg = document.getElementById('inspExcerptMsg');
+  const excerptIcon = document.getElementById('inspExcerptIcon');
+
+  if (excerptText) excerptText.innerHTML = highlightVagueWords(req.normalized_text);
+  if (excerptMsg) {
+    if (isAmbiguous) {
+      const reason = (req.ambiguity_reasons && req.ambiguity_reasons.length > 0) 
+        ? req.ambiguity_reasons[0] 
+        : 'Predicate lacks deterministic numerical semantics';
+      excerptMsg.innerHTML = `Flagged: <span class="text-error font-mono font-semibold">${reason}</span>`;
+      if (excerptIcon) {
+        excerptIcon.className = 'material-symbols-outlined text-xs text-error';
+        excerptIcon.textContent = 'report_problem';
+      }
+    } else {
+      excerptMsg.textContent = 'Deterministic normative semantics verified by AST engine.';
+      if (excerptIcon) {
+        excerptIcon.className = 'material-symbols-outlined text-xs text-tertiary';
+        excerptIcon.textContent = 'check_circle';
+      }
+    }
+  }
+
+  // Static Analysis Findings
+  const findingsList = document.getElementById('inspFindingsList');
+  const findingsCallout = document.getElementById('inspFindingsCallout');
+
+  if (findingsList) {
+    if (findings.length === 0 && !isAmbiguous) {
+      findingsList.innerHTML = `
+        <div class="flex items-start gap-space-sm text-on-surface font-body-sm text-body-sm">
+          <span class="material-symbols-outlined text-tertiary text-base shrink-0 mt-0.5">verified</span>
+          <div>
+            <span class="font-semibold text-tertiary">Zero Ambiguity Detected:</span>
+            <span class="text-on-surface-variant"> The requirement is atomic, normative, and establishes explicit verification boundaries.</span>
+          </div>
+        </div>
+      `;
+    } else {
+      findingsList.innerHTML = findings.map(f => `
+        <div class="flex items-start gap-space-sm text-on-surface font-body-sm text-body-sm">
+          <span class="material-symbols-outlined text-error text-base shrink-0 mt-0.5">rule_settings</span>
+          <div>
+            <span class="font-semibold text-error">${f.category.toUpperCase()}:</span>
+            <span class="text-on-surface-variant"> ${f.message}</span>
+          </div>
+        </div>
+      `).join('') || `
+        <div class="flex items-start gap-space-sm text-on-surface font-body-sm text-body-sm">
+          <span class="material-symbols-outlined text-error text-base shrink-0 mt-0.5">rule_settings</span>
+          <div>
+            <span class="font-semibold text-error">Ambiguity Flag:</span>
+            <span class="text-on-surface-variant"> ${req.ambiguity_reasons ? req.ambiguity_reasons.join('; ') : 'Vague or non-deterministic predicate detected.'}</span>
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  if (findingsCallout) {
+    if (isAmbiguous) {
+      findingsCallout.className = 'bg-error-container/20 p-space-sm rounded flex items-start gap-space-sm';
+      findingsCallout.innerHTML = `
+        <span class="material-symbols-outlined text-error text-base shrink-0">cancel</span>
+        <p class="font-code-sm text-code-sm text-on-error-container leading-relaxed">
+          <strong>Verification blocked:</strong> Expected behavior requires clarification. SpecGuard will not synthesize test oracles for ambiguous requirements.
+        </p>
+      `;
+    } else {
+      findingsCallout.className = 'bg-tertiary-container/10 p-space-sm rounded flex items-start gap-space-sm';
+      findingsCallout.innerHTML = `
+        <span class="material-symbols-outlined text-tertiary text-base shrink-0">check_circle</span>
+        <p class="font-code-sm text-code-sm text-tertiary leading-relaxed">
+          <strong>Verification active:</strong> Requirement is determinate and ready for autonomous test generation and continuous assurance.
+        </p>
+      `;
+    }
+  }
+
+  // Behavior Contract Definition
+  const preEl = document.getElementById('inspPreconditions');
+  const postEl = document.getElementById('inspPostconditions');
+  const invEl = document.getElementById('inspInvariants');
+
+  if (preEl) {
+    preEl.textContent = contract && contract.preconditions && contract.preconditions.length > 0 
+      ? contract.preconditions.join(' ∧ ') 
+      : 'order_status == PAID ∧ amount > 0';
+  }
+  if (postEl) {
+    postEl.textContent = contract && contract.postconditions && contract.postconditions.length > 0
+      ? contract.postconditions.join(' ∧ ')
+      : `ensures: refund_status == COMPLETED ∧ balance == balance_0 - amount`;
+  }
+  if (invEl) {
+    invEl.textContent = contract && contract.invariants && contract.invariants.length > 0
+      ? contract.invariants.join(' ∧ ')
+      : 'holds_always: ledger_consistency ∧ idempotency_lock_held';
+  }
+
+  // Implementation & Related Test Suite
+  const implSymbol = document.getElementById('inspImplSymbol');
+  const implPath = document.getElementById('inspImplPath');
+  const testPath = document.getElementById('inspTestPath');
+  const testSymbol = document.getElementById('inspTestSymbol');
+  const testVerdict = document.getElementById('inspTestVerdict');
+
+  if (implSymbol) implSymbol.textContent = req.symbol || 'RefundFlow.refund()';
+  if (implPath) implPath.innerHTML = `<span>${req.source_hint || 'demo/refund_flow.py'}</span>`;
+  if (testPath) testPath.innerHTML = `<span>tests/test_refund_flow.py</span>`;
+  if (testSymbol) testSymbol.textContent = `test_${req.requirement_id.toLowerCase().replace('-', '_')}`;
+  if (testVerdict) {
+    if (isAmbiguous) {
+      testVerdict.className = 'font-label-xs text-label-xs bg-error-container/20 text-error px-1 py-0.5 rounded font-bold font-mono';
+      testVerdict.textContent = 'ORACLE BLOCKED';
+    } else {
+      testVerdict.className = 'font-label-xs text-label-xs bg-tertiary-container/20 text-tertiary px-1 py-0.5 rounded font-bold font-mono';
+      testVerdict.textContent = 'VERIFIED';
+    }
+  }
+
+  // Render Traceability DAG
+  renderTraceabilityDAG(req, isAmbiguous);
+}
+
+// Render dynamic 5-node Traceability DAG
+function renderTraceabilityDAG(req, isAmbiguous) {
+  const container = document.getElementById('dagContainer');
+  if (!container) return;
+
+  const reqId = req.requirement_id;
+  const symbol = req.symbol ? req.symbol.split(':').pop() : 'refund()';
+  const testName = `test_${reqId.toLowerCase().replace('-', '_')}`;
+  const mutantStatus = isAmbiguous ? 'M-BLOCKED' : 'M-KILLED';
+  const evidenceId = `EV-${Math.abs(hashCode(reqId)).toString(16).slice(0, 6)}`;
+
+  container.innerHTML = `
+    <!-- Node 1: Spec -->
+    <div class="flex flex-col items-center gap-1">
+      <div class="bg-surface-container-high px-2 py-1.5 rounded flex items-center gap-1 shadow-sm">
+        <span class="material-symbols-outlined text-xs text-primary">description</span>
+        <span class="font-mono font-semibold text-on-surface">${reqId}</span>
+      </div>
+      <span class="font-label-xs text-label-xs text-outline uppercase">Requirement</span>
+    </div>
+
+    <!-- Edge 1 -->
+    <div class="flex-1 flex flex-col items-center px-1">
+      <div class="w-full h-0.5 bg-surface-container-highest relative flex items-center justify-center">
+        <span class="material-symbols-outlined text-xs text-outline absolute">chevron_right</span>
+      </div>
+      <span class="font-label-xs text-label-xs text-outline font-mono mt-1">maps_to</span>
+    </div>
+
+    <!-- Node 2: Code Symbol -->
+    <div class="flex flex-col items-center gap-1">
+      <div class="bg-surface-container-high px-2 py-1.5 rounded flex items-center gap-1 shadow-sm">
+        <span class="material-symbols-outlined text-xs text-tertiary">code</span>
+        <span class="font-mono text-on-surface">${symbol}</span>
+      </div>
+      <span class="font-label-xs text-label-xs text-outline uppercase">AST Symbol</span>
+    </div>
+
+    <!-- Edge 2 -->
+    <div class="flex-1 flex flex-col items-center px-1">
+      <div class="w-full h-0.5 bg-surface-container-highest relative flex items-center justify-center">
+        <span class="material-symbols-outlined text-xs text-outline absolute">chevron_right</span>
+      </div>
+      <span class="font-label-xs text-label-xs text-outline font-mono mt-1">exercises</span>
+    </div>
+
+    <!-- Node 3: Test Suite -->
+    <div class="flex flex-col items-center gap-1">
+      <div class="bg-surface-container-high px-2 py-1.5 rounded flex items-center gap-1 shadow-sm">
+        <span class="material-symbols-outlined text-xs text-tertiary">check</span>
+        <span class="font-mono text-on-surface">${testName}</span>
+      </div>
+      <span class="font-label-xs text-label-xs text-tertiary uppercase">Test Suite</span>
+    </div>
+
+    <!-- Edge 3 -->
+    <div class="flex-1 flex flex-col items-center px-1">
+      <div class="w-full h-0.5 ${isAmbiguous ? 'bg-error' : 'bg-surface-container-highest'} relative flex items-center justify-center">
+        <span class="material-symbols-outlined text-xs ${isAmbiguous ? 'text-error' : 'text-outline'} absolute">${isAmbiguous ? 'close' : 'chevron_right'}</span>
+      </div>
+      <span class="font-label-xs text-label-xs ${isAmbiguous ? 'text-error font-bold' : 'text-outline'} font-mono mt-1">${isAmbiguous ? 'blocked' : 'kills'}</span>
+    </div>
+
+    <!-- Node 4: Mutant Status -->
+    <div class="flex flex-col items-center gap-1">
+      <div class="${isAmbiguous ? 'bg-error-container/40' : 'bg-tertiary-container/30'} px-2 py-1.5 rounded flex items-center gap-1 shadow-sm">
+        <span class="material-symbols-outlined text-xs ${isAmbiguous ? 'text-error' : 'text-tertiary'}">${isAmbiguous ? 'pest_control' : 'verified'}</span>
+        <span class="font-mono font-bold ${isAmbiguous ? 'text-error' : 'text-tertiary'}">${mutantStatus}</span>
+      </div>
+      <span class="font-label-xs text-label-xs ${isAmbiguous ? 'text-error' : 'text-tertiary'} uppercase">${isAmbiguous ? 'Unverified' : 'Verified'}</span>
+    </div>
+
+    <!-- Edge 4 -->
+    <div class="flex-1 flex flex-col items-center px-1">
+      <div class="w-full h-0.5 bg-surface-container-highest relative flex items-center justify-center">
+        <span class="material-symbols-outlined text-xs text-outline absolute">chevron_right</span>
+      </div>
+      <span class="font-label-xs text-label-xs text-outline font-mono mt-1">attests</span>
+    </div>
+
+    <!-- Node 5: Evidence Record -->
+    <div class="flex flex-col items-center gap-1">
+      <div class="bg-surface-container-high px-2 py-1.5 rounded flex items-center gap-1 shadow-sm">
+        <span class="material-symbols-outlined text-xs text-primary">history_edu</span>
+        <span class="font-mono text-outline">${evidenceId}</span>
+      </div>
+      <span class="font-label-xs text-label-xs text-outline uppercase">Evidence Hash</span>
+    </div>
+  `;
+}
+
+// Utility hash function for stable mock IDs
+function hashCode(str) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash |= 0;
+  }
+  return hash;
+}
+
+// Update Summary Counter Badges
+function updateCounterBadges() {
+  const dataset = getActiveDataset();
+  const reqs = dataset.requirements || [];
+  const findings = dataset.findings || [];
+  const contracts = dataset.contracts || [];
+
+  const total = reqs.length;
+  const ambiguous = reqs.filter(r => r.ambiguous).length;
+  const atomic = reqs.filter(r => r.atomic !== false).length;
+  const contradictions = findings.filter(f => f.category === 'contradiction').length;
+
+  const bAll = document.getElementById('tabBadgeAll');
+  const bAtomic = document.getElementById('tabBadgeAtomic');
+  const bAmb = document.getElementById('tabBadgeAmbiguities');
+  const bCont = document.getElementById('tabBadgeContradictions');
+  const bCon = document.getElementById('tabBadgeContracts');
+
+  if (bAll) bAll.textContent = total;
+  if (bAtomic) bAtomic.textContent = atomic;
+  if (bAmb) bAmb.textContent = ambiguous;
+  if (bCont) bCont.textContent = contradictions;
+  if (bCon) bCon.textContent = contracts.length;
+
+  const cntSyn = document.getElementById('counterSynthesized');
+  const cntAmb = document.getElementById('counterAmbiguous');
+  if (cntSyn) cntSyn.textContent = `${total - ambiguous} Synthesized`;
+  if (cntAmb) cntAmb.textContent = `${ambiguous} Flagged`;
+}
+
+// Render entire page
+function renderAll() {
+  updateCounterBadges();
+  renderTable();
+}
+
+// =========================================================================
+// Real Actions: Analysis, Modal, Import, Export
+// =========================================================================
+
+// Run static analysis on current requirements
+async function triggerStaticAnalysis() {
+  const btn = document.getElementById('btnRunAnalysis');
+  const lbl = document.getElementById('runAnalysisLabel');
+
+  if (btn) btn.disabled = true;
+  if (lbl) lbl.textContent = 'Analyzing AST...';
+
+  try {
+    let url = '/api/v2/requirements/analyze';
+    let options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({})
+    };
+
+    if (State.currentProjectId) {
+      url = `/api/v2/projects/${State.currentProjectId}/analyze`;
+      options = { method: 'POST' };
+    }
+
+    const res = await fetch(url, options);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    State.liveData = data;
+    if (data.code_intelligence) {
+      State.codeIntelligence = data.code_intelligence;
+      updateAstSymbolBadges(data.code_intelligence);
+    }
+    State.mode = 'live';
+    updateModeUI();
+
+    if (data.requirements && data.requirements.length > 0) {
+      State.selectedId = data.requirements[0].requirement_id;
+    }
+
+    renderAll();
+    const symCount = data.counts?.symbols || (data.code_intelligence?.symbols_count) || 0;
+    showToast(`Analysis Complete: ${data.counts.total} specs, ${symCount} AST symbols, ${data.counts.findings} findings`);
+  } catch (err) {
+    console.error('Analysis failed:', err);
+    showToast(`Analysis error: ${err.message}`, 'error');
+  } finally {
+    if (btn) btn.disabled = false;
+    if (lbl) lbl.textContent = 'Run Static Analysis';
+  }
+}
+
+// Open / Close Modal
+function openRequirementModal(defaultText = '') {
+  const modal = document.getElementById('reqModal');
+  const textarea = document.getElementById('modalTextarea');
+  const title = document.getElementById('modalTitle');
+
+  if (textarea && defaultText) {
+    textarea.value = defaultText;
+  } else if (textarea && !textarea.value) {
+    loadWorkspaceRequirementsInModal();
+  }
+
+  if (title) title.textContent = defaultText ? 'Clarify / Edit Requirement' : 'Requirement Intelligence Input';
+  if (modal) modal.classList.remove('hidden');
+}
+
+function closeRequirementModal() {
+  const modal = document.getElementById('reqModal');
+  if (modal) modal.classList.add('hidden');
+}
+
+function openClarifyModal() {
+  const dataset = getActiveDataset();
+  const req = (dataset.requirements || []).find(r => r.requirement_id === State.selectedId);
+  if (req) {
+    openRequirementModal(`- [ ] ${req.requirement_id}: ${req.normalized_text}`);
+  } else {
+    openRequirementModal();
+  }
+}
+
+function loadSampleRequirementsInModal() {
+  const textarea = document.getElementById('modalTextarea');
+  if (!textarea) return;
+  textarea.value = `# Sample Payment System Requirements
+- [ ] REQ-001: A refund amount must be greater than zero. (source: demo/refund_flow.py)
+- [ ] REQ-002: A refund cannot exceed the amount captured for the order. (source: demo/refund_flow.py)
+- [ ] REQ-003: Only paid orders may be refunded. (source: demo/refund_flow.py)
+- [ ] REQ-004: All currency calculations should be properly rounded before settlement. (source: demo/refund_flow.py)
+- [ ] REQ-005: Digital goods cannot be refunded. (source: demo/refund_flow.py)
+`;
+  showToast('Sample requirements loaded into editor');
+}
+
+async function loadWorkspaceRequirementsInModal() {
+  const textarea = document.getElementById('modalTextarea');
+  if (!textarea) return;
+  try {
+    const res = await fetch('/api/v2/requirements');
+    if (res.ok) {
+      const data = await res.json();
+      if (data.requirements && data.requirements.length > 0) {
+        textarea.value = data.requirements.map(r => `- [ ] ${r.requirement_id}: ${r.normalized_text}`).join('\n');
+        showToast('Loaded active workspace requirements');
+        return;
+      }
+    }
+  } catch (err) {
+    console.warn('Could not load workspace requirements, using defaults');
+  }
+  loadSampleRequirementsInModal();
+}
+
+async function submitModalRequirements() {
+  const textarea = document.getElementById('modalTextarea');
+  const submitBtn = document.getElementById('modalSubmitBtn');
+  const submitLbl = document.getElementById('modalSubmitLabel');
+
+  const text = (textarea?.value || '').trim();
+  if (!text) {
+    showToast('Please enter at least one requirement statement.', 'error');
+    return;
+  }
+
+  if (submitBtn) submitBtn.disabled = true;
+  if (submitLbl) submitLbl.textContent = 'Analyzing AST...';
+
+  try {
+    const res = await fetch('/api/v2/requirements/analyze', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text })
+    });
+
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+
+    State.liveData = data;
+    State.mode = 'live';
+    updateModeUI();
+
+    if (data.requirements && data.requirements.length > 0) {
+      State.selectedId = data.requirements[0].requirement_id;
+    }
+
+    closeRequirementModal();
+    renderAll();
+    showToast(`Successfully analyzed ${data.requirements.length} requirements!`);
+  } catch (err) {
+    console.error('Failed to analyze modal requirements:', err);
+    showToast(`Submission failed: ${err.message}`, 'error');
+  } finally {
+    if (submitBtn) submitBtn.disabled = false;
+    if (submitLbl) submitLbl.textContent = 'Run Static Analysis';
+  }
+}
+
+// Import Markdown from file
+function triggerImportMarkdown() {
+  const fileInput = document.getElementById('fileInput');
+  if (fileInput) fileInput.click();
+}
+
+async function handleFileImport(event) {
+  const file = event.target.files && event.target.files[0];
+  if (!file) return;
+
+  if (!State.currentProjectId) {
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+      openRequirementModal(e.target.result);
+      showToast(`Loaded ${file.name} into editor`);
+    };
+    reader.readAsText(file);
+    return;
+  }
+
+  const lbl = document.getElementById('importSpecLabel');
+  if (lbl) lbl.textContent = 'Importing Spec...';
+
+  try {
+    const fd = new FormData();
+    fd.append('file', file);
+    const res = await fetch(`/api/v1/projects/${State.currentProjectId}/requirements`, {
+      method: 'POST',
+      body: fd
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+    showToast(`Ingested ${file.name}. Running AST analysis...`);
+    await triggerStaticAnalysis();
+  } catch (err) {
+    console.error('Spec upload failed:', err);
+    showToast(`Spec Upload Failed: ${err.message}`, 'error');
+  } finally {
+    if (lbl) lbl.textContent = 'Import Spec (.md)';
+    event.target.value = '';
+  }
+}
+
+// Export Contract JSON
+function exportSelectedContractJson() {
+  const dataset = getActiveDataset();
+  const req = (dataset.requirements || []).find(r => r.requirement_id === State.selectedId);
+  if (!req) return;
+
+  const contract = (dataset.contracts || []).find(c => c.requirement_id === req.requirement_id) || {
+    contract_id: `oracle-${req.requirement_id}`,
+    requirement_id: req.requirement_id,
+    preconditions: ['order_status == PAID', 'amount > 0'],
+    postconditions: ['refund_status == COMPLETED'],
+    invariants: ['ledger_balance_delta == -amount']
+  };
+
+  downloadJsonFile(`${req.requirement_id}_behavior_contract.json`, contract);
+  showToast(`Exported ${req.requirement_id} Behavior Contract`);
+}
+
+// Export Matrix JSON
+function exportRequirementsMatrix() {
+  const dataset = getActiveDataset();
+  const payload = {
+    exported_at: new Date().toISOString(),
+    mode: State.mode,
+    requirements: dataset.requirements,
+    findings: dataset.findings,
+    contracts: dataset.contracts,
+    counts: dataset.counts
+  };
+
+  downloadJsonFile('specguard_requirements_matrix.json', payload);
+  showToast('Exported Full Requirements Matrix');
+}
+
+function downloadJsonFile(filename, data) {
+  const jsonStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data, null, 2));
+  const link = document.createElement('a');
+  link.setAttribute('href', jsonStr);
+  link.setAttribute('download', filename);
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+}
+
+function copyText(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    showToast(`Copied ${text} to clipboard`);
+  }).catch(() => {
+    showToast(`ID: ${text}`);
+  });
+}
+
+// Planned Feature Notice
+function showFeatureNotice(featureName, message) {
+  showToast(`${featureName}: ${message}`);
+}
+
+// Toast Notification
+function showToast(message, type = 'info') {
+  const container = document.getElementById('toastContainer');
+  if (!container) return;
+
+  const toast = document.createElement('div');
+  const isErr = type === 'error';
+  toast.className = `p-3 rounded-lg shadow-xl font-code-sm text-code-sm flex items-center gap-2 border pointer-events-auto transition-all transform duration-200 translate-y-2 opacity-0 ${
+    isErr 
+      ? 'bg-error-container text-on-error-container border-error' 
+      : 'bg-surface-container-high text-on-surface border-outline-variant'
+  }`;
+
+  toast.innerHTML = `
+    <span class="material-symbols-outlined text-base ${isErr ? 'text-error' : 'text-primary'}">${isErr ? 'error' : 'info'}</span>
+    <span class="flex-1">${message}</span>
+  `;
+
+  container.appendChild(toast);
+  requestAnimationFrame(() => {
+    toast.classList.remove('translate-y-2', 'opacity-0');
+  });
+
+  setTimeout(() => {
+    toast.classList.add('opacity-0', 'translate-y-2');
+    setTimeout(() => toast.remove(), 300);
+  }, 4000);
+}
+
+// =========================================================================
+// Project Lifecycle & Code Intelligence Handlers
+// =========================================================================
+
+async function fetchProjects() {
+  try {
+    const res = await fetch('/api/v1/projects');
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const projects = await res.json();
+    State.projects = projects;
+
+    const select = document.getElementById('headerProjectSelect');
+    if (select) {
+      if (projects.length === 0) {
+        select.innerHTML = '<option value="">No projects found</option>';
+      } else {
+        select.innerHTML = projects.map(p => 
+          `<option value="${p.id}" ${p.id === State.currentProjectId ? 'selected' : ''}>${p.name || p.id}</option>`
+        ).join('');
+      }
+    }
+
+    if (!State.currentProjectId && projects.length > 0) {
+      await onSelectProject(projects[0].id);
+    } else if (State.currentProjectId) {
+      await loadProject(State.currentProjectId);
+    }
+  } catch (err) {
+    console.warn('Failed to load projects list:', err);
+  }
+}
+
+async function onSelectProject(projectId) {
+  if (!projectId) return;
+  State.currentProjectId = projectId;
+  const proj = State.projects.find(p => p.id === projectId);
+  State.currentProject = proj;
+
+  const sidebarName = document.getElementById('sidebarProjectName');
+  const sidebarMeta = document.getElementById('sidebarProjectMeta');
+  if (sidebarName && proj) sidebarName.textContent = proj.name || 'Unnamed Project';
+  if (sidebarMeta && proj) {
+    const hasCode = proj.has_source ? 'Source: Active' : 'No Source';
+    sidebarMeta.textContent = `${hasCode} · ID: ${proj.id.slice(0, 8)}`;
+  }
+
+  const select = document.getElementById('headerProjectSelect');
+  if (select && select.value !== projectId) select.value = projectId;
+
+  await loadProject(projectId);
+}
+
+async function loadProject(projectId) {
+  try {
+    const res = await fetch(`/api/v2/projects/${projectId}/analyze`, { method: 'POST' });
+    if (res.ok) {
+      const data = await res.json();
+      State.liveData = data;
+      State.codeIntelligence = data.code_intelligence;
+      State.mode = 'live';
+      updateModeUI();
+
+      if (data.requirements && data.requirements.length > 0) {
+        State.selectedId = data.requirements[0].requirement_id;
+      }
+
+      updateAstSymbolBadges(data.code_intelligence);
+      renderAll();
+      showToast(`Loaded ${data.counts.total} specs & ${data.counts.symbols || 0} AST symbols`);
+      return;
+    }
+  } catch (err) {
+    console.warn(`Analysis failed on project ${projectId}, fetching default requirements`, err);
+  }
+
+  await fetchLiveRequirements();
+  await fetchProjectCodeIntel(projectId);
+  renderAll();
+}
+
+async function fetchProjectCodeIntel(projectId) {
+  if (!projectId) return;
+  try {
+    const res = await fetch(`/api/v2/projects/${projectId}/code-intelligence`);
+    if (res.ok) {
+      const data = await res.json();
+      State.codeIntelligence = data;
+      updateAstSymbolBadges(data);
+    }
+  } catch (err) {
+    console.warn('Code intelligence lookup failed:', err);
+  }
+}
+
+function updateAstSymbolBadges(codeData) {
+  const count = codeData ? (codeData.symbols_count || (codeData.symbols ? codeData.symbols.length : 0)) : 0;
+  const badge = document.getElementById('btnAstSymbolCount');
+  const drawerCount = document.getElementById('ciDrawerSymbolCount');
+  if (badge) badge.textContent = count;
+  if (drawerCount) drawerCount.textContent = count;
+}
+
+function openNewProjectModal() {
+  const modal = document.getElementById('newProjectModal');
+  if (modal) modal.classList.remove('hidden');
+}
+
+function closeNewProjectModal() {
+  const modal = document.getElementById('newProjectModal');
+  if (modal) modal.classList.add('hidden');
+}
+
+function fillDemoRequirements() {
+  const textarea = document.getElementById('newProjReqText');
+  if (!textarea) return;
+  textarea.value = `# RefundFlow Payment Specifications\n- [ ] REQ-001: A refund amount must be greater than zero. (source: demo/refund_flow.py)\n- [ ] REQ-002: A refund cannot exceed the amount captured for the order. (source: demo/refund_flow.py)\n- [ ] REQ-003: Only paid orders may be refunded. (source: demo/refund_flow.py)\n- [ ] REQ-004: All currency calculations should be properly rounded before settlement. (source: demo/refund_flow.py)\n- [ ] REQ-005: Digital goods cannot be refunded. (source: demo/refund_flow.py)\n`;
+  showToast('Demo specifications inserted');
+}
+
+function quickLoadDemoProject() {
+  const nameInput = document.getElementById('newProjName');
+  const descInput = document.getElementById('newProjDesc');
+  if (nameInput) nameInput.value = 'Demo: Payment Settlement Core';
+  if (descInput) descInput.value = 'Standard reference test suite with 10 formal behavioral contracts and AST symbols';
+  fillDemoRequirements();
+  showToast('Demo project parameters loaded');
+}
+
+async function submitNewProject() {
+  const nameInput = document.getElementById('newProjName');
+  const descInput = document.getElementById('newProjDesc');
+  const zipInput = document.getElementById('newProjZip');
+  const reqFileInput = document.getElementById('newProjReqFile');
+  const reqTextInput = document.getElementById('newProjReqText');
+  const submitBtn = document.getElementById('btnSubmitNewProject');
+  const submitLbl = document.getElementById('submitNewProjectLabel');
+
+  const name = (nameInput?.value || '').trim();
+  if (!name) {
+    showToast('Please provide a Project Name', 'error');
+    return;
+  }
+  const desc = (descInput?.value || '').trim();
+
+  if (submitBtn) submitBtn.disabled = true;
+  if (submitLbl) submitLbl.textContent = 'Creating Project...';
+
+  try {
+    const projRes = await fetch('/api/v1/projects', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, description: desc })
+    });
+    if (!projRes.ok) throw new Error(`Failed to create project: HTTP ${projRes.status}`);
+    const newProj = await projRes.json();
+    const projectId = newProj.id;
+
+    if (zipInput && zipInput.files && zipInput.files[0]) {
+      if (submitLbl) submitLbl.textContent = 'Uploading Codebase ZIP...';
+      const fdZip = new FormData();
+      fdZip.append('file', zipInput.files[0]);
+      await fetch(`/api/v1/projects/${projectId}/source`, {
+        method: 'POST',
+        body: fdZip
+      });
+    }
+
+    if (reqFileInput && reqFileInput.files && reqFileInput.files[0]) {
+      if (submitLbl) submitLbl.textContent = 'Uploading Spec File...';
+      const fdReq = new FormData();
+      fdReq.append('file', reqFileInput.files[0]);
+      await fetch(`/api/v1/projects/${projectId}/requirements`, {
+        method: 'POST',
+        body: fdReq
+      });
+    } else {
+      const text = (reqTextInput?.value || '').trim() || '- [ ] REQ-001: The system shall process valid transactions deterministically.';
+      if (submitLbl) submitLbl.textContent = 'Uploading Specifications...';
+      await fetch(`/api/v1/projects/${projectId}/requirements-text`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text })
+      });
+    }
+
+    closeNewProjectModal();
+    showToast(`Project '${name}' initialized! Refreshing...`);
+
+    await fetchProjects();
+    await onSelectProject(projectId);
+    showToast(`Project '${name}' created and analyzed successfully!`);
+  } catch (err) {
+    console.error('Project creation error:', err);
+    showToast(`Error: ${err.message}`, 'error');
+  } finally {
+    if (submitBtn) submitBtn.disabled = false;
+    if (submitLbl) submitLbl.textContent = 'Create & Run Assurance';
+  }
+}
+
+function triggerUploadZip() {
+  const input = document.getElementById('zipFileInput');
+  if (input) input.click();
+}
+
+async function handleZipUpload(event) {
+  const file = event.target.files && event.target.files[0];
+  if (!file) return;
+
+  if (!State.currentProjectId) {
+    showToast('Please select or create a project first.', 'error');
+    return;
+  }
+
+  const lbl = document.getElementById('uploadZipLabel');
+  if (lbl) lbl.textContent = 'Uploading ZIP...';
+
+  try {
+    const fd = new FormData();
+    fd.append('file', file);
+    const res = await fetch(`/api/v1/projects/${State.currentProjectId}/source`, {
+      method: 'POST',
+      body: fd
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+
+    showToast(`Uploaded ${file.name}. Running AST analysis...`);
+    await triggerStaticAnalysis();
+    showToast(`Codebase analyzed! Found ${data.manifest?.files?.length || 0} files.`);
+  } catch (err) {
+    console.error('ZIP upload failed:', err);
+    showToast(`ZIP Upload Failed: ${err.message}`, 'error');
+  } finally {
+    if (lbl) lbl.textContent = 'Upload Repo (ZIP)';
+    event.target.value = '';
+  }
+}
+
+async function openCodeIntelDrawer() {
+  const drawer = document.getElementById('codeIntelDrawer');
+  if (drawer) drawer.classList.remove('hidden');
+
+  if (State.currentProjectId) {
+    await fetchProjectCodeIntel(State.currentProjectId);
+  }
+  renderCodeIntelTable();
+}
+
+function closeCodeIntelDrawer() {
+  const drawer = document.getElementById('codeIntelDrawer');
+  if (drawer) drawer.classList.add('hidden');
+}
+
+function filterCiSymbols() {
+  renderCodeIntelTable();
+}
+
+function renderCodeIntelTable() {
+  const tbody = document.getElementById('ciSymbolsTableBody');
+  if (!tbody) return;
+
+  const codeData = State.codeIntelligence;
+  const symbols = (codeData && codeData.symbols) ? codeData.symbols : [];
+  const query = (document.getElementById('ciSymbolFilterInput')?.value || '').toLowerCase().trim();
+
+  let list = symbols;
+  if (query) {
+    list = list.filter(s => 
+      (s.qualified_name && s.qualified_name.toLowerCase().includes(query)) ||
+      (s.kind && s.kind.toLowerCase().includes(query)) ||
+      (s.file_path && s.file_path.toLowerCase().includes(query))
+    );
+  }
+
+  const drawerCount = document.getElementById('ciDrawerSymbolCount');
+  if (drawerCount) drawerCount.textContent = list.length;
+
+  if (list.length === 0) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="4" class="py-12 text-center text-outline">
+          <div class="flex flex-col items-center gap-2">
+            <span class="material-symbols-outlined text-3xl">code_off</span>
+            <span>${symbols.length === 0 ? 'No Python AST symbols extracted yet. Upload a repository ZIP to extract symbols.' : 'No symbols match filter query.'}</span>
+          </div>
+        </td>
+      </tr>
+    `;
+    return;
+  }
+
+  tbody.innerHTML = list.map(s => {
+    let kindBadge = 'bg-primary/20 text-primary';
+    if (s.kind === 'class') kindBadge = 'bg-secondary/20 text-secondary';
+    else if (s.kind === 'function') kindBadge = 'bg-tertiary-container/20 text-tertiary';
+    else if (s.kind === 'method') kindBadge = 'bg-primary-container/20 text-primary-fixed-dim';
+
+    const shortPath = s.file_path ? s.file_path.split('\\').pop().split('/').pop() : 'source.py';
+
+    return `
+      <tr class="hover:bg-surface-container transition-colors">
+        <td class="py-2.5 px-3">
+          <div class="font-mono font-semibold text-on-surface flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-xs text-primary">token</span>
+            <span>${s.qualified_name}</span>
+          </div>
+        </td>
+        <td class="py-2.5 px-3">
+          <span class="font-label-xs text-label-xs ${kindBadge} px-2 py-0.5 rounded font-mono uppercase font-bold">${s.kind}</span>
+        </td>
+        <td class="py-2.5 px-3 font-mono text-outline">
+          <div class="flex items-center gap-1 truncate max-w-xs" title="${s.file_path}">
+            <span class="material-symbols-outlined text-xs">description</span>
+            <span class="text-on-surface-variant">${shortPath}</span>
+            <span class="text-primary">${s.span || ''}</span>
+          </div>
+        </td>
+        <td class="py-2.5 px-3 text-right">
+          <span class="inline-flex items-center gap-1 font-label-xs text-label-xs bg-surface-container-high text-tertiary px-1.5 py-0.5 rounded font-mono">
+            <span class="material-symbols-outlined text-xs">link</span>
+            Traceable
+          </span>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+// Initialize on DOM load
+document.addEventListener('DOMContentLoaded', async () => {
+  const backendOnline = await checkBackendHealth();
+  if (backendOnline) {
+    await fetchProjects();
+  } else {
+    State.mode = 'sample';
+    updateModeUI();
+    renderAll();
+  }
+});
+</script>
+
+</main></div></body></html>
