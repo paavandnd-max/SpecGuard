@@ -1,0 +1,13 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - python -m pip install -e ".[dev]"
+  build:
+    commands:
+      - python -m pytest
+      - python -m specguard.cli .
+artifacts:
+  files:
+    - outputs/specguard-report.json
+    - outputs/specguard-report.html
